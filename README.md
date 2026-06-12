@@ -3,7 +3,7 @@
 Personal portfolio of **Tran Thanh Tuan**, full-stack developer in Ho Chi Minh City.
 Built with Three.js, caffeine & AI-assisted. 🤖☕
 
-**Live:** _Vercel URL coming soon_
+**Live:** https://hituan.vercel.app
 
 ## What's inside
 
