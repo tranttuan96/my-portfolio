@@ -19,3 +19,13 @@ initAvatarTiltCard();
 
 // Three.js loads after first paint so content renders instantly.
 import('./scene/background-particles').then(({ startBackgroundScene }) => startBackgroundScene());
+
+// 3D hero intro — only on capable devices; tilt-card stays as the fallback.
+import('./scene/webgl-capability-check').then(async ({ canRunHeroScene }) => {
+  if (!canRunHeroScene()) return;
+  const { mountHeroIntro } = await import('./scene/hero-intro-mount');
+  mountHeroIntro().catch((err) => {
+    // any load failure → keep the tilt-card fallback silently
+    console.warn('hero intro unavailable:', err);
+  });
+});

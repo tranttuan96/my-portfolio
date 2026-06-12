@@ -7,12 +7,15 @@ Usage:
       --image input.png --out output.glb [--seed 1234]
 """
 import argparse
+import os
 import shutil
 import sys
 
 from gradio_client import Client, handle_file
 
 SPACE = "microsoft/TRELLIS.2"
+# Auth via env only — NEVER hardcode or commit the token.
+HF_TOKEN = os.environ.get("HF_TOKEN")
 
 
 def glb_path(result):
@@ -38,8 +41,8 @@ def main() -> int:
     parser.add_argument("--texture-size", type=int, default=1024)
     args = parser.parse_args()
 
-    print(f"[1/4] Connecting to {SPACE} ...")
-    client = Client(SPACE, verbose=False)
+    print(f"[1/4] Connecting to {SPACE} (auth: {'token' if HF_TOKEN else 'anonymous'}) ...")
+    client = Client(SPACE, token=HF_TOKEN, verbose=False)
     client.predict(api_name="/start_session")
 
     print("[2/4] Preprocessing image (background removal)...")

@@ -50,6 +50,12 @@
             <span class="photo-badge">👋 Hi!</span>
           </div>
         </div>
+        <!-- 3D intro stage — revealed by hero-intro-mount when WebGL capable -->
+        <div class="hero-stage" id="heroStage" hidden>
+          <canvas id="stage-canvas"></canvas>
+          <button class="stage-btn skip" id="btnSkip" data-en="Skip ⏭" data-vi="Bỏ qua ⏭">Skip ⏭</button>
+          <button class="stage-btn replay" id="btnReplay" data-en="↻ Replay" data-vi="↻ Xem lại" hidden>↻ Replay</button>
+        </div>
       </div>
     </div>
   </section>
