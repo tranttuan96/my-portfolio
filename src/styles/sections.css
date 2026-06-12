@@ -1,0 +1,47 @@
+/* work teaser */
+.work-list { margin-top: 8px; border: 2px solid var(--border); border-radius: 18px; overflow: hidden }
+.work-row {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center;
+  padding: 16px 20px; background: var(--card); border-top: 1px solid var(--border); transition: .16s;
+}
+.work-row:first-child { border-top: none }
+.work-row:hover { background: var(--bg2) }
+.work-row .wemoji { font-size: 22px }
+.work-row .wtitle { font-weight: 800; font-size: 16px }
+.work-row .wmeta { color: var(--muted); font-size: 12.5px }
+.work-row .wtags { color: var(--accent3); font-size: 12px; font-weight: 700; text-align: right; white-space: nowrap }
+.nda-note { color: var(--muted); font-size: 14px; margin-bottom: 14px; max-width: 620px }
+.work-cta { display: flex; justify-content: center; margin-top: 18px }
+
+/* pet projects */
+.pet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 14px }
+.pet-card {
+  background: var(--card); border: 2px solid var(--border); border-radius: 18px; padding: 22px;
+  display: flex; flex-direction: column; gap: 8px; transition: .18s; position: relative; overflow: hidden;
+}
+.pet-card:hover { transform: translateY(-5px) rotate(-1deg); border-color: var(--accent) }
+.pet-card .pemoji { font-size: 30px }
+.pet-card .ptitle { font-weight: 800; font-size: 17px }
+.pet-card .pdesc { color: var(--muted); font-size: 13.5px; flex: 1 }
+.pet-card .ptags { color: var(--accent3); font-size: 12px; font-weight: 700 }
+.pet-card .plink { color: var(--accent); font-weight: 800; font-size: 13.5px; text-decoration: none }
+.pet-card .plink:hover { text-decoration: underline }
+.pet-card.brewing { border-style: dashed; opacity: .75 }
+.pet-card .pbadge {
+  position: absolute; top: 14px; right: -30px; transform: rotate(38deg); background: var(--accent2); color: var(--bg);
+  font-size: 11px; font-weight: 800; padding: 3px 34px;
+}
+
+/* contact */
+.contact-card {
+  background: linear-gradient(135deg, var(--card), var(--bg2)); border: 2px solid var(--border);
+  border-radius: 22px; padding: 36px; text-align: center;
+}
+.contact-card h2 { font-size: clamp(24px, 4vw, 38px); margin-bottom: 10px }
+.contact-card p { color: var(--muted); max-width: 480px; margin: 0 auto 22px }
+.contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap }
+
+@media (max-width: 720px) {
+  .work-row { grid-template-columns: auto 1fr }
+  .work-row .wtags { display: none }
+}

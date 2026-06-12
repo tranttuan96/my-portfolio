@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tuan Tran — Full-Stack Developer 👨‍💻</title>
+<meta name="description" content="Full-stack developer in Ho Chi Minh City. React, NestJS, MongoDB. Shipping web apps with an AI-assisted workflow." />
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<div id="blob"></div>
+
+<div class="topbar">
+  <div class="logo"><a href="/">Tuan<span>.dev</span></a></div>
+  <div class="nav">
+    <a href="#about" class="nav-link" data-en="About" data-vi="Giới thiệu">About</a>
+    <a href="#work" class="nav-link" data-en="Work" data-vi="Kinh nghiệm">Work</a>
+    <a href="#fun" class="nav-link" data-en="Fun" data-vi="Vui vẻ">Fun</a>
+    <a href="/cv.html" class="nav-link">CV</a>
+    <a href="#contact" class="nav-link" data-en="Contact" data-vi="Liên hệ">Contact</a>
+    <div class="lang-toggle">
+      <button id="btn-en">EN</button>
+      <button id="btn-vi">VI</button>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- HERO — Phase 3 mounts the 3D intro scene into .hero-photo -->
+  <section class="hero" id="home">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow" data-en="Available for hire" data-vi="Đang tìm việc 👀">Available for hire</span>
+        <h1><span data-en="Hi, I'm Tuan" data-vi="Chào, mình là Tuấn">Hi, I'm Tuan</span> <span class="wave">👋</span><br/>
+          <span class="grad">Full-stack developer</span></h1>
+        <p class="sub">Ho Chi Minh City · React · NestJS · MongoDB</p>
+        <p class="typed-line"><span data-en="I " data-vi="Mình ">I </span><span class="typed" id="typed"></span></p>
+        <div class="cta-row">
+          <a href="#work" class="btn btn-primary" data-en="See my work 🚀" data-vi="Xem kinh nghiệm 🚀">See my work 🚀</a>
+          <a href="#contact" class="btn btn-ghost" data-en="Say hi 💬" data-vi="Nói chuyện 💬">Say hi 💬</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-float">
+          <div class="avatar-card" id="avatarCard">
+            <span class="photo-deco d1">✨</span>
+            <span class="photo-deco d2">🤖</span>
+            <img class="avatar-img" src="/avatar_cut.png" alt="Tuan — 3D chibi avatar" />
+            <span class="photo-badge">👋 Hi!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="section-title" data-en="About" data-vi="Giới thiệu">About<span class="dot">.</span></h2>
+    <p class="lead" data-en="Full-stack developer in Ho Chi Minh City with <strong>3 years</strong> building and shipping production SaaS &amp; CRM apps — React, TypeScript, Node/NestJS, MeteorJS and MongoDB. I turn high-level business requirements into features that ship." data-vi="Lập trình viên full-stack ở TP.HCM, <strong>3 năm</strong> xây và ship các app SaaS &amp; CRM production — React, TypeScript, Node/NestJS, MeteorJS và MongoDB. Mình biến yêu cầu nghiệp vụ thành tính năng lên prod.">Full-stack developer in Ho Chi Minh City with <strong>3 years</strong> building and shipping production SaaS &amp; CRM apps — React, TypeScript, Node/NestJS, MeteorJS and MongoDB. I turn high-level business requirements into features that ship.</p>
+    <p class="lead" data-en="Right now I'm all-in on <strong>using AI to boost productivity</strong> — Claude, Cursor and Copilot to ship faster and spend my brain on the hard parts." data-vi="Hiện tại mình tập trung <strong>dùng AI để tăng năng suất</strong> — Claude, Cursor, Copilot để ship nhanh hơn và dành đầu óc cho phần khó.">Right now I'm all-in on <strong>using AI to boost productivity</strong> — Claude, Cursor and Copilot to ship faster and spend my brain on the hard parts.</p>
+    <div class="chips">
+      <span class="chip">⚛️ React · TypeScript</span>
+      <span class="chip">🪺 NestJS · Node</span>
+      <span class="chip">🍃 MongoDB · PostgreSQL</span>
+      <span class="chip">☁️ AWS · Docker</span>
+      <span class="chip">🤖 <span data-en="AI-assisted workflow" data-vi="Quy trình có AI hỗ trợ">AI-assisted workflow</span></span>
+      <span class="chip">📍 <span data-en="HCMC · Remote-friendly" data-vi="TP.HCM · Ưu tiên remote">HCMC · Remote-friendly</span></span>
+    </div>
+  </section>
+
+  <!-- WORK (teaser — details live on /cv) -->
+  <section id="work">
+    <h2 class="section-title" data-en="Work" data-vi="Kinh nghiệm">Work<span class="dot">.</span></h2>
+    <p class="nda-note" data-en="3 years shipping production SaaS &amp; CRM apps. The short version:" data-vi="3 năm ship các app SaaS &amp; CRM production. Bản tóm tắt:">3 years shipping production SaaS &amp; CRM apps. The short version:</p>
+    <div class="work-list" id="workList"></div>
+    <div class="work-cta">
+      <a href="/cv.html" class="btn btn-primary" data-en="View full CV →" data-vi="Xem CV đầy đủ →">View full CV →</a>
+    </div>
+  </section>
+
+  <!-- PET PROJECTS & FUN -->
+  <section id="fun">
+    <h2 class="section-title" data-en="Pet projects &amp; fun" data-vi="Pet projects &amp; vui vẻ">Pet projects &amp; fun<span class="dot">.</span></h2>
+    <p class="nda-note" data-en="Things I build for the joy of it. Small ideas, zero meetings." data-vi="Những thứ mình làm cho vui. Ý tưởng nhỏ, không họp hành.">Things I build for the joy of it. Small ideas, zero meetings.</p>
+    <div class="pet-grid" id="petGrid"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-card">
+      <h2 data-en="Let's build something 🚀" data-vi="Cùng làm gì đó nhé 🚀">Let's build something 🚀</h2>
+      <p data-en="Open to mid-level full-stack roles and interesting freelance work. I reply fast." data-vi="Mình mở cho vị trí full-stack middle và freelance thú vị. Rep nhanh.">Open to mid-level full-stack roles and interesting freelance work. I reply fast.</p>
+      <div class="contact-links">
+        <a href="mailto:tranttuan96@gmail.com" class="btn btn-primary">📧 Email</a>
+        <a href="/cv.pdf" class="btn btn-ghost" download>📄 CV</a>
+        <!-- LinkedIn button hidden until the profile URL is provided -->
+        <a href="#" id="link-linkedin" class="btn btn-ghost" target="_blank" rel="noopener" hidden>💼 LinkedIn</a>
+        <a href="https://github.com/tranttuan96" id="link-github" class="btn btn-ghost" target="_blank" rel="noopener">🐙 GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer><span data-en="Built with Three.js, caffeine &amp; AI-assisted by " data-vi="Làm bằng Three.js, caffeine &amp; AI hỗ trợ bởi ">Built with Three.js, caffeine &amp; AI-assisted by </span><b>Tuan Tran</b> · 2026</footer>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
