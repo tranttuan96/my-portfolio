@@ -27,6 +27,8 @@ export async function mountHeroIntro(): Promise<void> {
 
   await Promise.all([stage.loadDeskSet(), character.load('/avatar.glb'), devices.load()]);
   stage.scene.add(character.root, devices.group, ring.group);
+  // debug handle (harmless in prod, used by automated visual checks)
+  (window as unknown as Record<string, unknown>).__heroDebug = { stage, character };
 
   const bubble = new SpeechBubble(stageHost);
   const head = new THREE.Vector3();

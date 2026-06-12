@@ -54,7 +54,7 @@ export class HeroChibiScene {
       loader.loadAsync(basePath + 'chair.glb'),
     ]);
     desk.scene.position.set(0, 0, 0);
-    chair.scene.position.set(0, 0, -0.62);
+    chair.scene.position.set(0, 0, -0.78);
     chair.scene.rotation.y = 0; // backrest away from desk; character faces +z
     this.scene.add(desk.scene, chair.scene);
   }

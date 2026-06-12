@@ -25,16 +25,66 @@ export class ChibiCharacterController {
     const gltf = await new GLTFLoader().loadAsync(url);
     const model = gltf.scene;
 
+    // animated skinned meshes move outside their bind-pose bounds — without
+    // this three.js frustum-culls the character into invisibility
+    model.traverse((node) => {
+      const mesh = node as THREE.SkinnedMesh;
+      if (!mesh.isSkinnedMesh) return;
+      mesh.frustumCulled = false;
+      // single-sided + matte — double-sided rendering reads as translucent
+      const material = mesh.material as THREE.MeshStandardMaterial;
+      material.side = THREE.FrontSide;
+      if (material.roughness < 0.85) material.roughness = 0.9;
+    });
+
+    // Measure the SKINNED bounds (bones often live in another unit space —
+    // Mixamo exports cm — so the static geometry bbox lies wildly)
+    this.root.add(model);
+    let skinned: THREE.SkinnedMesh | null = null;
+    model.traverse((node) => {
+      if ((node as THREE.SkinnedMesh).isSkinnedMesh) skinned = node as THREE.SkinnedMesh;
+    });
     const box = new THREE.Box3().setFromObject(model);
     const size = box.getSize(new THREE.Vector3());
     const scale = targetHeight / size.y;
     model.scale.setScalar(scale);
-    // feet on local ground
     const scaledBox = new THREE.Box3().setFromObject(model);
-    model.position.y -= scaledBox.min.y;
+    model.position.y -= scaledBox.min.y; // feet on ground
 
-    this.root.add(model);
     this.mixer = new THREE.AnimationMixer(model);
+
+    // Mixamo clips arrive with bone position/scale keyframes in mixed units
+    // (cm vs the rig's meters) — the standard cleanup: keep rotations, keep a
+    // unit-corrected hips position (sit/crouch height), drop everything else.
+    if (skinned) {
+      const hips = (skinned as THREE.SkinnedMesh).skeleton.bones[0];
+      const restLength = hips.position.length();
+      for (const clip of gltf.animations) {
+        const hipsTrack = clip.tracks.find(
+          (t) => t.name.endsWith('.position') && t.name.includes(hips.name)
+        );
+        if (hipsTrack) {
+          let sum = 0;
+          const n = hipsTrack.values.length / 3;
+          for (let i = 0; i < n; i++) {
+            sum += Math.hypot(hipsTrack.values[i * 3], hipsTrack.values[i * 3 + 1], hipsTrack.values[i * 3 + 2]);
+          }
+          const factor = restLength / (sum / n);
+          if (factor < 0.5 || factor > 2) {
+            for (let i = 0; i < hipsTrack.values.length; i++) hipsTrack.values[i] *= factor;
+          }
+          // in-place: keep only the height channel so clips never drag the
+          // character away from where the sequence placed it
+          for (let i = 0; i < hipsTrack.values.length / 3; i++) {
+            hipsTrack.values[i * 3] = hips.position.x;
+            hipsTrack.values[i * 3 + 2] = hips.position.z;
+          }
+        }
+        clip.tracks = clip.tracks.filter(
+          (t) => t.name.endsWith('.quaternion') || t === hipsTrack
+        );
+      }
+    }
 
     for (const [state, aliases] of Object.entries(CLIP_ALIASES)) {
       for (const alias of aliases) {
