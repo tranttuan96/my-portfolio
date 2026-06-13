@@ -22,6 +22,12 @@ const TO_CHAIR_WAYPOINTS = [
   CHAIR_SEAT,
 ];
 
+/** Camera framing */
+const CAM_WIDE = new THREE.Vector3(1.7, 1.5, 2.7); // establishing shot during fly-in
+const LOOK_WIDE = new THREE.Vector3(0, 0.7, 0);
+const CAM_CLOSE = new THREE.Vector3(0.92, 0.96, 1.15); // tight working portrait once seated
+const LOOK_CLOSE = new THREE.Vector3(0.05, 0.66, -0.46);
+
 /**
  * Master timeline: FLY_IN → LAND (+devices→desk) → WAVE → SIT → TYPE_LOOP.
  * skip() jumps straight to the settled end state; replay() rewinds everything.
@@ -51,13 +57,14 @@ export class IntroAnimationSequence {
     this.character.play('Fly', 0.01);
 
     cam.position.set(2.4, 2.2, 3.4);
+    const look = LOOK_WIDE.clone();
 
     const tl = gsap.timeline();
     this.timeline = tl;
 
     // FLY_IN 0–2s: descend; ring + devices follow via onFrame anchors
     tl.to(char.position, { y: LANDING_SPOT.y, duration: 2.0, ease: 'power2.in' }, 0);
-    tl.to(cam.position, { x: 1.7, y: 1.5, z: 2.7, duration: 2.4, ease: 'power2.out', onUpdate: () => cam.lookAt(0, 0.7, 0) }, 0);
+    tl.to(cam.position, { x: CAM_WIDE.x, y: CAM_WIDE.y, z: CAM_WIDE.z, duration: 2.4, ease: 'power2.out', onUpdate: () => cam.lookAt(look) }, 0);
 
     // LAND 2–3.5s
     tl.call(() => {
@@ -98,6 +105,13 @@ export class IntroAnimationSequence {
     tl.to(char.rotation, { y: 0, duration: 0.4 }, 6.9);
     tl.call(() => this.character.play('Sit', 0.35, true), undefined, 7.0);
 
+    // CAMERA dolly-in to the intimate working shot as he settles
+    tl.to(cam.position, { x: CAM_CLOSE.x, y: CAM_CLOSE.y, z: CAM_CLOSE.z, duration: 1.8, ease: 'power2.inOut' }, 6.6);
+    tl.to(look, {
+      x: LOOK_CLOSE.x, y: LOOK_CLOSE.y, z: LOOK_CLOSE.z, duration: 1.8, ease: 'power2.inOut',
+      onUpdate: () => cam.lookAt(look),
+    }, 6.6);
+
     // TYPE ~8.2s+: sit-to-type transition if available, then idle loop
     tl.call(() => {
       if (this.character.hasState('SitToType')) {
@@ -123,8 +137,8 @@ export class IntroAnimationSequence {
     char.rotation.y = 0;
     this.character.play('Type', 0.05);
 
-    this.stage.camera.position.set(1.7, 1.5, 2.7);
-    this.stage.camera.lookAt(0, 0.7, 0);
+    this.stage.camera.position.copy(CAM_CLOSE);
+    this.stage.camera.lookAt(LOOK_CLOSE);
     this.finish();
   }
 

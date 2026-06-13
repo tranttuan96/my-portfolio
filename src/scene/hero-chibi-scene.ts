@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { StageDressing } from './stage-dressing';
 
 /**
  * Hero stage: transparent renderer, lights, desk + chair set dressing, render
@@ -11,6 +12,7 @@ export class HeroChibiScene {
   readonly camera: THREE.PerspectiveCamera;
   readonly renderer: THREE.WebGLRenderer;
   private controls: OrbitControls | null = null;
+  private dressing: StageDressing | null = null;
   private updaters: Array<(dt: number) => void> = [];
   private clock = new THREE.Clock();
   private running = true;
@@ -24,18 +26,24 @@ export class HeroChibiScene {
     this.camera.position.set(1.7, 1.5, 2.7);
     this.camera.lookAt(0, 0.7, 0);
 
-    const hemi = new THREE.HemisphereLight(0xfff6e6, 0x6a5acd, 1.15);
-    const key = new THREE.DirectionalLight(0xffffff, 2.2);
+    // softer ambient now that the lamp carries the warmth
+    const hemi = new THREE.HemisphereLight(0xfff6e6, 0x4a3a7d, 0.7);
+    const key = new THREE.DirectionalLight(0xffffff, 1.5);
     key.position.set(2.5, 4, 3);
-    const rim = new THREE.DirectionalLight(0xff7eb6, 1.1);
+    const rim = new THREE.DirectionalLight(0xff7eb6, 0.9);
     rim.position.set(-3, 2, -3);
     this.scene.add(hemi, key, rim);
 
-    // soft ground blob shadow
-    const shadowMat = new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.22 });
-    const shadow = new THREE.Mesh(new THREE.CircleGeometry(1.25, 32), shadowMat);
+    // cosy workspace: lit podium, warm desk lamp, screen glow
+    this.dressing = new StageDressing();
+    this.scene.add(this.dressing.group);
+    this.onFrame((dt) => this.dressing!.update(dt));
+
+    // soft ground blob shadow on the podium
+    const shadowMat = new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.28 });
+    const shadow = new THREE.Mesh(new THREE.CircleGeometry(1.1, 32), shadowMat);
     shadow.rotation.x = -Math.PI / 2;
-    shadow.position.y = 0.005;
+    shadow.position.y = 0.02;
     this.scene.add(shadow);
 
     this.fitToCanvas();
@@ -70,13 +78,13 @@ export class HeroChibiScene {
       return;
     }
     this.controls = new OrbitControls(this.camera, this.canvas);
-    this.controls.target.set(0, 0.7, 0);
+    this.controls.target.set(0, 0.62, -0.35);
     this.controls.enablePan = false;
     this.controls.enableZoom = false;
     this.controls.minPolarAngle = Math.PI * 0.3;
-    this.controls.maxPolarAngle = Math.PI * 0.48;
-    this.controls.minAzimuthAngle = -Math.PI * 0.3;
-    this.controls.maxAzimuthAngle = Math.PI * 0.3;
+    this.controls.maxPolarAngle = Math.PI * 0.5;
+    this.controls.minAzimuthAngle = -Math.PI * 0.32;
+    this.controls.maxAzimuthAngle = Math.PI * 0.32;
     this.controls.enableDamping = true;
   }
 

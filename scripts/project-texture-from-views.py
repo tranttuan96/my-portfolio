@@ -108,14 +108,32 @@ scene.render.engine = "CYCLES"
 scene.cycles.samples = 4
 scene.cycles.device = "CPU"
 bpy.ops.object.bake(type="EMIT")
-print("baked")
+print("baked color")
 
-# 5) swap to a plain principled material using the baked texture, export
+# AO multiplied into color — separates hair/face/clothes into readable parts
+ao_img = bpy.data.images.new("ao", 1024, 1024, alpha=False)
+bake_node.image = ao_img
+scene.cycles.samples = 24
+scene.world = bpy.data.worlds.new("w")
+bpy.ops.object.bake(type="AO")
+print("baked ao")
+
+import numpy as np
+
+color = np.array(bake_img.pixels[:]).reshape(-1, 4)
+ao = np.array(ao_img.pixels[:]).reshape(-1, 4)
+color[:, :3] *= 0.55 + 0.45 * ao[:, :3]
+bake_img.pixels = color.ravel().tolist()
+
+# 5) final material: matte clay, single-sided (double-sided reads translucent)
 final = bpy.data.materials.new("chibi")
 final.use_nodes = True
+final.use_backface_culling = True
 fnt = final.node_tree
 bsdf = fnt.nodes["Principled BSDF"]
-bsdf.inputs["Roughness"].default_value = 0.7
+bsdf.inputs["Roughness"].default_value = 0.92
+if "Specular IOR Level" in bsdf.inputs:
+    bsdf.inputs["Specular IOR Level"].default_value = 0.15
 timg = fnt.nodes.new("ShaderNodeTexImage")
 timg.image = bake_img
 fnt.links.new(timg.outputs["Color"], bsdf.inputs["Base Color"])
