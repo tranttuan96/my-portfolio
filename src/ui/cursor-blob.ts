@@ -8,9 +8,13 @@ export function initCursorBlob(): void {
   let mouseX = blobX;
   let mouseY = blobY;
 
+  // stay hidden until the pointer actually moves, so it doesn't park
+  // as a stray dot in the middle of the page on load
+  blob.style.opacity = '0';
   addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    blob.style.opacity = '1';
   });
 
   document.querySelectorAll('a, button, .work-row, .pet-card, .chip').forEach((el) => {

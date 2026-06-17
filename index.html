@@ -7,7 +7,6 @@
 <meta name="description" content="Full-stack developer in Ho Chi Minh City. React, NestJS, MongoDB. Shipping web apps with an AI-assisted workflow." />
 </head>
 <body>
-<canvas id="bg-canvas"></canvas>
 <div id="blob"></div>
 
 <div class="topbar">
@@ -42,20 +41,8 @@
         </div>
       </div>
       <div class="hero-photo">
-        <div class="photo-float">
-          <div class="avatar-card" id="avatarCard">
-            <span class="photo-deco d1">✨</span>
-            <span class="photo-deco d2">🤖</span>
-            <img class="avatar-img" src="/avatar_cut.png" alt="Tuan — 3D chibi avatar" />
-            <span class="photo-badge">👋 Hi!</span>
-          </div>
-        </div>
-        <!-- 3D intro stage — revealed by hero-intro-mount when WebGL capable -->
-        <div class="hero-stage" id="heroStage" hidden>
-          <canvas id="stage-canvas"></canvas>
-          <button class="stage-btn skip" id="btnSkip" data-en="Skip ⏭" data-vi="Bỏ qua ⏭">Skip ⏭</button>
-          <button class="stage-btn replay" id="btnReplay" data-en="↻ Replay" data-vi="↻ Xem lại" hidden>↻ Replay</button>
-        </div>
+        <!-- animated SVG line-art scene mounted by line-art-hero.ts -->
+        <div class="line-art-hero" id="heroArt"></div>
       </div>
     </div>
   </section>
