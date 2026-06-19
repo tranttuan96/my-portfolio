@@ -26,18 +26,27 @@
 
 <div class="content">
 
-  <!-- HERO — floating 3D shapes behind centred intro (derikn-style) -->
-  <section class="hero hero-shapes" id="home">
-    <canvas id="hero-canvas" class="shapes-canvas"></canvas>
-    <div class="hero-inner">
-      <span class="eyebrow" data-en="Available for hire" data-vi="Đang tìm việc 👀">Available for hire</span>
-      <h1><span data-en="Hi, I'm Tuan" data-vi="Chào, mình là Tuấn">Hi, I'm Tuan</span> <span class="wave">👋</span><br/>
-        <span class="grad">Full-stack developer</span></h1>
-      <p class="sub">Ho Chi Minh City · React · NestJS · MongoDB</p>
-      <p class="typed-line"><span data-en="I " data-vi="Mình ">I </span><span class="typed" id="typed"></span></p>
-      <div class="cta-row">
-        <a href="#work" class="btn btn-primary" data-en="See my work 🚀" data-vi="Xem kinh nghiệm 🚀">See my work 🚀</a>
-        <a href="#contact" class="btn btn-ghost" data-en="Say hi 💬" data-vi="Nói chuyện 💬">Say hi 💬</a>
+  <!-- HERO — derikn-style: text left, avatar card + corner decoratives right -->
+  <section class="hero" id="home">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="greeting" data-en="Welcome to Tuan's portfolio 👋" data-vi="Chào mừng tới portfolio của Tuấn 👋">Welcome to Tuan's portfolio 👋</p>
+        <h1 class="grad role">Full-stack<br/>developer</h1>
+        <p class="intro" data-en="I'm Tuan, a passionate full-stack developer based in Ho Chi Minh City — shipping production web apps with an AI-assisted workflow." data-vi="Mình là Tuấn, một full-stack developer ở TP.HCM — ship web app lên production với quy trình có AI hỗ trợ.">I'm Tuan, a passionate full-stack developer based in Ho Chi Minh City — shipping production web apps with an AI-assisted workflow.</p>
+        <div class="cta-row">
+          <a href="#work" class="btn btn-primary" data-en="See my work 🚀" data-vi="Xem kinh nghiệm 🚀">See my work 🚀</a>
+          <a href="#contact" class="btn btn-ghost" data-en="Say hi 💬" data-vi="Nói chuyện 💬">Say hi 💬</a>
+        </div>
+      </div>
+      <div class="hero-illust">
+        <div class="avatar-card">
+          <img id="heroAvatar" src="/avatar.webp" alt="Tuan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="avatar-fallback">🧑‍💻</div>
+        </div>
+        <img class="deco deco-tl" src="/decoratives/knot.png" alt="" aria-hidden="true" />
+        <img class="deco deco-tr" src="/decoratives/torus.png" alt="" aria-hidden="true" />
+        <img class="deco deco-bl" src="/decoratives/triangle.png" alt="" aria-hidden="true" />
+        <img class="deco deco-br" src="/decoratives/diamond.png" alt="" aria-hidden="true" />
       </div>
     </div>
   </section>
