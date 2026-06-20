@@ -2,6 +2,7 @@
   "name": "my-portfolio",
   "private": true,
   "version": "1.0.0",
+  "description": "Personal portfolio of Tuan Tran — Full-stack Developer. Built with Vite, TypeScript, and Vanilla CSS.",
   "type": "module",
   "scripts": {
     "dev": "vite",
