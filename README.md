@@ -6,7 +6,7 @@ Personal portfolio of **Tran Thanh Tuan**, full-stack developer in Ho Chi Minh C
 
 ## What's inside
 
-- 🎮 **Interactive 3D hero** — A clean, Apple-inspired UI with an expressive 3D developer avatar and floating props.
+- 🎮 **Interactive 3D hero** — A clean, modern UI with an expressive 3D developer avatar and floating props.
 - 🧪 **My projects** — A showcase of personal side projects, learning experiments, and public-facing work.
 - 📱 **Fully responsive** — Graceful fallback for mobile and different screen sizes.
 
