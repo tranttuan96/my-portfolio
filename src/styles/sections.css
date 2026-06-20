@@ -1,4 +1,5 @@
 /* tech stack */
+.stack-section { margin-top: 80px; }
 .stack-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 16px; margin-top: 32px;
 }
@@ -52,6 +53,15 @@
 .social-btn img { width: 18px; height: 18px; }
 
 @media (max-width: 860px) {
-  .connect-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .stack-section { margin-top: 0px; }
+  .connect-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 36px 20px; }
   .connect-links { justify-content: center; }
+  .connect-avatar { width: 140px; height: 140px; }
+}
+
+@media (max-width: 720px) {
+  .stack-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .tech-item img { width: 44px; height: 44px; }
+  .tech-item span { font-size: 11.5px; }
+  .social-btn { min-height: 44px; }
 }

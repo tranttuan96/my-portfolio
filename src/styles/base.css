@@ -68,6 +68,11 @@ footer b { color: var(--text-strong) }
 @media (max-width: 720px) {
   .nav .nav-link { display: none }
   #blob { display: none }
+  body {
+    --avatar-hero-offset-x: -28px;
+    --avatar-hero-offset-y: -20px;
+    --avatar-hero-scale: 1.15;
+  }
 }
 
 @keyframes clayBob { 0%,100%{transform:translateY(0) rotate(var(--rot, 0deg))} 50%{transform:translateY(-12px) rotate(var(--rot, 0deg))} }

@@ -36,6 +36,13 @@
   .hero .role { margin-left: auto; margin-right: auto; }
   .cta-row { justify-content: center; }
   .hero-illust { order: -1; }
+  .hero-stage { height: 320px; }
+  
+  /* Keep the icons but shrink and pull them inside so they don't cause overflow */
+  .deco-tl { width: 60px; left: 2%; top: 8%; }
+  .deco-tr { width: 66px; right: 2%; top: 4%; }
+  .deco-bl { width: 60px; left: 2%; bottom: 10%; }
+  .deco-br { width: 55px; right: 2%; bottom: 5%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .deco { animation: none !important; }
