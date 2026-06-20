@@ -1,45 +1,35 @@
-import type { Bilingual } from './work-projects';
-
 export interface PetProject {
-  emoji: string;
-  title: Bilingual;
-  desc: Bilingual;
+  shape: string;
+  tint: string;
+  title: string;
+  desc: string;
   tags: string;
-  link?: { href: string; label: Bilingual };
+  link?: { href: string; label: string };
   brewing?: boolean;
 }
 
 export const petProjects: PetProject[] = [
   {
-    emoji: '👀',
-    title: { en: 'This portfolio', vi: 'Chính trang này' },
-    desc: {
-      en: 'You’re looking at it. A 3D chibi me, a Doctor Strange entrance, and way too much caffeine. The one project I can show 100% of.',
-      vi: 'Bạn đang xem nó đó. Một chibi 3D, màn chào sân kiểu Doctor Strange, và quá nhiều caffeine. Dự án duy nhất mình show được 100%.',
-    },
-    tags: 'Three.js · TypeScript · Vite',
-    link: {
-      href: 'https://github.com/tranttuan96/my-portfolio',
-      label: { en: 'Source →', vi: 'Mã nguồn →' },
-    },
+    shape: 'square',
+    tint: 'linear-gradient(135deg,#ffd0e0,#ffe9c7)',
+    title: 'This portfolio',
+    desc: "You're looking at it. TypeScript, Vite, pure CSS animations — and way too much caffeine. The one project I can show 100% of.",
+    tags: 'TypeScript · Vite · CSS',
+    link: { href: 'https://github.com/tranttuan96/my-portfolio', label: 'Source →' },
   },
   {
-    emoji: '☕',
-    title: { en: 'Something’s brewing', vi: 'Đang ủ một thứ' },
-    desc: {
-      en: 'A tiny weekend idea is taking shape here. Check back soon — or ping me and I’ll tell you about it first.',
-      vi: 'Một ý tưởng cuối tuần nho nhỏ đang thành hình. Quay lại sau nhé — hoặc nhắn mình kể cho nghe trước.',
-    },
+    shape: 'zigzag',
+    tint: 'linear-gradient(135deg,#cfe6ff,#d8d2ff)',
+    title: "Something's brewing",
+    desc: "A tiny weekend idea is taking shape here. Check back soon — or ping me and I'll tell you about it first.",
     tags: '???',
     brewing: true,
   },
   {
-    emoji: '🧪',
-    title: { en: 'Idea slot #3', vi: 'Slot ý tưởng #3' },
-    desc: {
-      en: 'Reserved for the next “what if I just…” moment. Fun ideas only, zero meetings guaranteed.',
-      vi: 'Để dành cho khoảnh khắc “hay là mình thử…” tiếp theo. Chỉ nhận ý tưởng vui, cam kết không họp hành.',
-    },
+    shape: 'torus',
+    tint: 'linear-gradient(135deg,#ffd9c2,#ffb9d1)',
+    title: 'Idea slot #3',
+    desc: 'Reserved for the next "what if I just..." moment. Fun ideas only, zero meetings guaranteed.',
     tags: 'coming soon',
     brewing: true,
   },

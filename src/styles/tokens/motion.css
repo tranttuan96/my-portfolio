@@ -1,0 +1,28 @@
+/* ── Motion ─────────────────────────────────────────────────
+   Playful but quick. Spring-ish easing for entrances, snappy
+   ease for hovers. Hover = lift + (sometimes) tiny rotate.
+   Press = settle back down. Honor prefers-reduced-motion. */
+
+:root {
+  --ease-spring: cubic-bezier(.2, .8, .2, 1); /* @kind other */
+  --ease-snap:   cubic-bezier(.4, 0, .2, 1); /* @kind other */
+
+  --dur-fast:  .16s; /* @kind other */
+  --dur-base:  .2s; /* @kind other */
+  --dur-slow:  .9s; /* @kind other */
+  --dur-intro: 1s; /* @kind other */
+
+  /* Standard interaction transforms */
+  --lift-sm: translateY(-2px); /* @kind other */
+  --lift-md: translateY(-3px); /* @kind other */
+  --lift-lg: translateY(-5px) rotate(-1deg); /* @kind other */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0s; /* @kind other */
+    --dur-base: 0s; /* @kind other */
+    --dur-slow: 0s; /* @kind other */
+    --dur-intro: 0s; /* @kind other */
+  }
+}

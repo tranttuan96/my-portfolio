@@ -1,21 +1,18 @@
 # Tuan Tran — Portfolio
 
 Personal portfolio of **Tran Thanh Tuan**, full-stack developer in Ho Chi Minh City.
-Built with Three.js, caffeine & AI-assisted. 🤖☕
 
 **Live:** https://hituan.vercel.app
 
 ## What's inside
 
-- 🎮 **Interactive 3D hero** — a chibi version of me makes a Doctor Strange-style entrance: flies in surrounded by orbiting work gear (MacBook, keyboard, mouse, coffee), lands, waves hello, then sits down and types. *(in progress — currently a tilt-card avatar)*
-- 🌐 **Bilingual** — full English / Vietnamese toggle, persisted across pages
-- 📄 **`/cv` page** — skills snapshot, experience timeline, printable, PDF download
-- 🧪 **Pet projects** — fun ideas built for joy, zero meetings
-- 📱 Graceful fallback for mobile / reduced-motion / weak WebGL
+- 🎮 **Interactive 3D hero** — A clean, Apple-inspired UI with an expressive 3D developer avatar and floating props.
+- 🧪 **My projects** — A showcase of personal side projects, learning experiments, and public-facing work.
+- 📱 **Fully responsive** — Graceful fallback for mobile and different screen sizes.
 
 ## Stack
 
-Vite · TypeScript · Three.js (vanilla, no framework) · plain CSS
+Vite · HTML · plain CSS · TypeScript
 
 ## Develop
 
@@ -29,19 +26,16 @@ npm run preview   # serve the production build
 ## Structure
 
 ```
-index.html / cv.html      # Vite multi-page entries
+index.html            # Vite single-page entry
 src/
-├── main.ts / cv.ts       # page entry points
-├── scene/                # Three.js scenes (bg particles; 3D intro lands here)
-├── sections/             # DOM renderers fed by data/
-├── data/                 # typed content (work, pet projects)
-├── i18n/                 # EN/VI toggle via data-en / data-vi attributes
-├── ui/                   # typing effect, cursor blob, avatar tilt
-└── styles/               # split CSS modules
-public/                   # avatar, cv.pdf, (3D assets later)
+├── main.ts           # entry point
+├── sections/         # DOM renderers fed by data/
+├── data/             # typed content (work, pet projects)
+├── ui/               # cursor blob interaction
+└── styles/           # split CSS modules (base, hero, sections)
+public/               # avatar assets, cv pdf, images
 ```
 
 ## Credits
 
-Designed & built by Tuan Tran with an AI-assisted workflow (Claude Code).
-3D props (when they land): CC0 low-poly models — credits in `docs/asset-credits.md`.
+Designed & built by Tuan Tran.

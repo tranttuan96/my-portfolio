@@ -3,104 +3,132 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tuan Tran — Full-Stack Developer 👨‍💻</title>
-<meta name="description" content="Full-stack developer in Ho Chi Minh City. React, NestJS, MongoDB. Shipping web apps with an AI-assisted workflow." />
+<title>Tuan Tran — Full-Stack Developer</title>
+<link rel="icon" type="image/png" href="/logo-mark.png" />
+<meta name="description" content="Full-stack developer in Ho Chi Minh City. React, NestJS, MongoDB. I care about clean architecture, performant code, and modern development workflows." />
 </head>
 <body>
 <div id="blob"></div>
 
-<div class="topbar">
-  <div class="logo"><a href="/">Tuan<span>.dev</span></a></div>
-  <div class="nav">
-    <a href="#about" class="nav-link" data-en="About" data-vi="Giới thiệu">About</a>
-    <a href="#work" class="nav-link" data-en="Work" data-vi="Kinh nghiệm">Work</a>
-    <a href="#fun" class="nav-link" data-en="Fun" data-vi="Vui vẻ">Fun</a>
-    <a href="/cv.html" class="nav-link">CV</a>
-    <a href="#contact" class="nav-link" data-en="Contact" data-vi="Liên hệ">Contact</a>
-    <div class="lang-toggle">
-      <button id="btn-en">EN</button>
-      <button id="btn-vi">VI</button>
-    </div>
+<header class="topbar">
+  <div class="logo">
+    <img src="/logo-mark.png" alt="" class="logo-img" />
+    <a href="/">Tuan<span>.dev</span></a>
   </div>
-</div>
+  <nav class="nav">
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#projects" class="nav-link">Project</a>
+    <a href="/Tran-Thanh-Tuan-CV.pdf" class="btn btn-primary btn-sm" download>Resume 📄</a>
+  </nav>
+</header>
 
 <div class="content">
 
-  <!-- HERO — derikn-style: text left, avatar card + corner decoratives right -->
   <section class="hero" id="home">
     <div class="hero-grid">
       <div class="hero-text">
-        <p class="greeting" data-en="Welcome to Tuan's portfolio 👋" data-vi="Chào mừng tới portfolio của Tuấn 👋">Welcome to Tuan's portfolio 👋</p>
-        <h1 class="grad role">Full-stack<br/>developer</h1>
-        <p class="intro" data-en="I'm Tuan, a passionate full-stack developer based in Ho Chi Minh City — shipping production web apps with an AI-assisted workflow." data-vi="Mình là Tuấn, một full-stack developer ở TP.HCM — ship web app lên production với quy trình có AI hỗ trợ.">I'm Tuan, a passionate full-stack developer based in Ho Chi Minh City — shipping production web apps with an AI-assisted workflow.</p>
+        <div style="margin-bottom: 16px;">
+          <span class="badge">● Open to work</span>
+        </div>
+        <p class="greeting">Welcome to my portfolio 👋</p>
+        <h1 class="role">Full-stack<br/>developer</h1>
+        <p class="intro">I'm Tuan — a full-stack developer in Ho Chi Minh City with 3+ years of experience building production software. I care about clean architecture, performant code, and modern development workflows.</p>
         <div class="cta-row">
-          <a href="#work" class="btn btn-primary" data-en="See my work 🚀" data-vi="Xem kinh nghiệm 🚀">See my work 🚀</a>
-          <a href="#contact" class="btn btn-ghost" data-en="Say hi 💬" data-vi="Nói chuyện 💬">Say hi 💬</a>
+          <a href="#projects" class="btn btn-primary">See my work 🚀</a>
+          <a href="/Tran-Thanh-Tuan-CV.pdf" class="btn btn-ghost" download>Download CV 📄</a>
         </div>
       </div>
       <div class="hero-illust">
-        <div class="avatar-card">
-          <img id="heroAvatar" src="/avatar.webp" alt="Tuan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-          <div class="avatar-fallback">🧑‍💻</div>
+        <div class="hero-stage">
+          <div class="avatar-card"></div>
+          <img class="avatar-img" src="/avatar-3d.png?v=3" alt="3D avatar of Tuan" />
+          <img class="deco deco-tl" src="https://img.icons8.com/3d-fluency/240/coffee-to-go.png" alt="" aria-hidden="true" />
+          <img class="deco deco-tr" src="https://img.icons8.com/3d-fluency/240/laptop.png" alt="" aria-hidden="true" />
+          <img class="deco deco-bl" src="https://img.icons8.com/3d-fluency/240/headset.png" alt="" aria-hidden="true" />
+          <img class="deco deco-br" src="https://img.icons8.com/3d-fluency/240/computer-mouse.png" alt="" aria-hidden="true" />
         </div>
-        <img class="deco deco-tl" src="/decoratives/knot.png" alt="" aria-hidden="true" />
-        <img class="deco deco-tr" src="/decoratives/torus.png" alt="" aria-hidden="true" />
-        <img class="deco deco-bl" src="/decoratives/triangle.png" alt="" aria-hidden="true" />
-        <img class="deco deco-br" src="/decoratives/diamond.png" alt="" aria-hidden="true" />
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="section-title" data-en="About" data-vi="Giới thiệu">About<span class="dot">.</span></h2>
-    <p class="lead" data-en="Full-stack developer in Ho Chi Minh City with <strong>3 years</strong> building and shipping production SaaS &amp; CRM apps — React, TypeScript, Node/NestJS, MeteorJS and MongoDB. I turn high-level business requirements into features that ship." data-vi="Lập trình viên full-stack ở TP.HCM, <strong>3 năm</strong> xây và ship các app SaaS &amp; CRM production — React, TypeScript, Node/NestJS, MeteorJS và MongoDB. Mình biến yêu cầu nghiệp vụ thành tính năng lên prod.">Full-stack developer in Ho Chi Minh City with <strong>3 years</strong> building and shipping production SaaS &amp; CRM apps — React, TypeScript, Node/NestJS, MeteorJS and MongoDB. I turn high-level business requirements into features that ship.</p>
-    <p class="lead" data-en="Right now I'm all-in on <strong>using AI to boost productivity</strong> — Claude, Cursor and Copilot to ship faster and spend my brain on the hard parts." data-vi="Hiện tại mình tập trung <strong>dùng AI để tăng năng suất</strong> — Claude, Cursor, Copilot để ship nhanh hơn và dành đầu óc cho phần khó.">Right now I'm all-in on <strong>using AI to boost productivity</strong> — Claude, Cursor and Copilot to ship faster and spend my brain on the hard parts.</p>
-    <div class="chips">
-      <span class="chip">⚛️ React · TypeScript</span>
-      <span class="chip">🪺 NestJS · Node</span>
-      <span class="chip">🍃 MongoDB · PostgreSQL</span>
-      <span class="chip">☁️ AWS · Docker</span>
-      <span class="chip">🤖 <span data-en="AI-assisted workflow" data-vi="Quy trình có AI hỗ trợ">AI-assisted workflow</span></span>
-      <span class="chip">📍 <span data-en="HCMC · Remote-friendly" data-vi="TP.HCM · Ưu tiên remote">HCMC · Remote-friendly</span></span>
+  <!-- TECH STACK -->
+  <section id="stack" style="margin-top: 80px;">
+    <span class="eyebrow eyebrow-go">What I build with</span>
+    <h2 class="section-title">Technology stack<span class="dot">.</span></h2>
+    <p class="lead">I care about security and performance, and I pick boring, proven tools that ship — across the whole stack.</p>
+    <div class="stack-grid">
+      <div class="tech-item">
+        <img src="https://img.icons8.com/plasticine/200/react.png" onerror="this.src='https://cdn.simpleicons.org/react/149ECA'" alt="React" />
+        <span>React</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://img.icons8.com/fluency/240/typescript.png" onerror="this.src='https://cdn.simpleicons.org/typescript/3178C6'" alt="TypeScript" />
+        <span>TypeScript</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://img.icons8.com/fluency/240/javascript.png" onerror="this.src='https://cdn.simpleicons.org/javascript/F7DF1E'" alt="JavaScript" />
+        <span>JavaScript</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://img.icons8.com/fluency/240/node-js.png" onerror="this.src='https://cdn.simpleicons.org/nodedotjs/5FA04E'" alt="Node.js" />
+        <span>Node.js</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://img.icons8.com/color/240/nestjs.png" onerror="this.src='https://cdn.simpleicons.org/nestjs/E0234E'" alt="NestJS" />
+        <span>NestJS</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://img.icons8.com/color/240/mongodb.png" onerror="this.src='https://cdn.simpleicons.org/mongodb/47A248'" alt="MongoDB" />
+        <span>MongoDB</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://img.icons8.com/color/240/postgreesql.png" onerror="this.src='https://cdn.simpleicons.org/postgresql/4169E1'" alt="PostgreSQL" />
+        <span>PostgreSQL</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://img.icons8.com/color/240/amazon-web-services.png" onerror="this.src='https://cdn.simpleicons.org/amazonaws/232F3E'" alt="AWS" />
+        <span>AWS</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://img.icons8.com/fluency/240/docker.png" onerror="this.src='https://cdn.simpleicons.org/docker/2496ED'" alt="Docker" />
+        <span>Docker</span>
+      </div>
     </div>
   </section>
 
-  <!-- WORK (teaser — details live on /cv) -->
-  <section id="work">
-    <h2 class="section-title" data-en="Work" data-vi="Kinh nghiệm">Work<span class="dot">.</span></h2>
-    <p class="nda-note" data-en="3 years shipping production SaaS &amp; CRM apps. The short version:" data-vi="3 năm ship các app SaaS &amp; CRM production. Bản tóm tắt:">3 years shipping production SaaS &amp; CRM apps. The short version:</p>
-    <div class="work-list" id="workList"></div>
-    <div class="work-cta">
-      <a href="/cv.html" class="btn btn-primary" data-en="View full CV →" data-vi="Xem CV đầy đủ →">View full CV →</a>
-    </div>
-  </section>
-
-  <!-- PET PROJECTS & FUN -->
-  <section id="fun">
-    <h2 class="section-title" data-en="Pet projects &amp; fun" data-vi="Pet projects &amp; vui vẻ">Pet projects &amp; fun<span class="dot">.</span></h2>
-    <p class="nda-note" data-en="Things I build for the joy of it. Small ideas, zero meetings." data-vi="Những thứ mình làm cho vui. Ý tưởng nhỏ, không họp hành.">Things I build for the joy of it. Small ideas, zero meetings.</p>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <span class="eyebrow eyebrow-pop">Featured work</span>
+    <h2 class="section-title">My projects<span class="dot">.</span></h2>
+    <p class="lead">A collection of personal side projects, learning experiments, and public work.</p>
     <div class="pet-grid" id="petGrid"></div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-card">
-      <h2 data-en="Let's build something 🚀" data-vi="Cùng làm gì đó nhé 🚀">Let's build something 🚀</h2>
-      <p data-en="Open to mid-level full-stack roles and interesting freelance work. I reply fast." data-vi="Mình mở cho vị trí full-stack middle và freelance thú vị. Rep nhanh.">Open to mid-level full-stack roles and interesting freelance work. I reply fast.</p>
-      <div class="contact-links">
-        <a href="mailto:tranttuan96@gmail.com" class="btn btn-primary">📧 Email</a>
-        <a href="/cv.pdf" class="btn btn-ghost" download>📄 CV</a>
-        <!-- LinkedIn button hidden until the profile URL is provided -->
-        <a href="#" id="link-linkedin" class="btn btn-ghost" target="_blank" rel="noopener" hidden>💼 LinkedIn</a>
-        <a href="https://github.com/tranttuan96" id="link-github" class="btn btn-ghost" target="_blank" rel="noopener">🐙 GitHub</a>
+  <!-- LET'S CONNECT -->
+  <section id="connect">
+    <div class="connect-grid">
+      <div class="connect-avatar">
+        <img id="c-img" src="/avatar-3d.png?v=3" alt="Tuan" style="transform: translateX(-11px);" />
+      </div>
+      <div>
+        <span class="eyebrow eyebrow-accent">Say hi</span>
+        <h2>Let’s build something 🚀</h2>
+        <p>Open to full-stack roles and interesting freelance work. I reply fast.</p>
+        <div class="connect-links">
+          <a href="mailto:tranttuan96@gmail.com" class="social-btn"><img src="https://cdn.simpleicons.org/gmail/ec3f76" alt="" /> Email</a>
+          <a href="https://github.com/tranttuan96" class="social-btn" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/github/1f1b2e" alt="" /> GitHub</a>
+          <a href="https://www.linkedin.com/" class="social-btn" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="" /> LinkedIn</a>
+        </div>
       </div>
     </div>
   </section>
 
 </div>
 
-<footer><span data-en="Built with Three.js, caffeine &amp; AI-assisted by " data-vi="Làm bằng Three.js, caffeine &amp; AI hỗ trợ bởi ">Built with Three.js, caffeine &amp; AI-assisted by </span><b>Tuan Tran</b> · 2026</footer>
+<footer>
+  <img src="/signature.png" alt="Tuan Tran" style="height: 54px; margin-bottom: 12px;" /><br/>
+  Crafted with caffeine &amp; AI assistance by <b>Tuan Tran</b> · © 2026
+</footer>
 
 <script type="module" src="/src/main.ts"></script>
 </body>

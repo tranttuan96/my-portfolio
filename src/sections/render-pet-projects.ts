@@ -1,10 +1,6 @@
 import { petProjects } from '../data/pet-projects';
 import { escapeAttr, safeHref } from '../utils/escape-html';
 
-/**
- * Emits data-en/data-vi attributes so the global language toggle covers these nodes.
- * emoji/tags are injected raw — static typed data only, never external input.
- */
 export function renderPetProjects(): void {
   const grid = document.getElementById('petGrid');
   if (!grid) return;
@@ -12,20 +8,23 @@ export function renderPetProjects(): void {
   grid.innerHTML = petProjects
     .map((project) => {
       const link = project.link
-        ? `<a class="plink" href="${safeHref(project.link.href)}" target="_blank" rel="noopener"
-             data-en="${escapeAttr(project.link.label.en)}" data-vi="${escapeAttr(project.link.label.vi)}">${project.link.label.en}</a>`
+        ? `<a class="plink" href="${safeHref(project.link.href)}" target="_blank" rel="noopener">${escapeAttr(project.link.label)}</a>`
         : '';
-      const badge = project.brewing
-        ? `<span class="pbadge" data-en="soon" data-vi="sắp có">soon</span>`
-        : '';
+      const badge = project.brewing ? `<span class="pbadge">In progress</span>` : '';
       return `
       <div class="pet-card${project.brewing ? ' brewing' : ''}">
-        ${badge}
-        <span class="pemoji">${project.emoji}</span>
-        <div class="ptitle" data-en="${escapeAttr(project.title.en)}" data-vi="${escapeAttr(project.title.vi)}">${project.title.en}</div>
-        <div class="pdesc" data-en="${escapeAttr(project.desc.en)}" data-vi="${escapeAttr(project.desc.vi)}">${project.desc.en}</div>
-        <div class="ptags">${project.tags}</div>
-        ${link}
+        <div class="p-illust" style="background: ${project.tint}">
+          <img src="/decoratives/${project.shape}.png" alt="" />
+        </div>
+        <div class="p-content">
+          <div class="p-header">
+            <span class="ptitle">${escapeAttr(project.title)}</span>
+            ${badge}
+          </div>
+          <p class="pdesc">${escapeAttr(project.desc)}</p>
+          <div class="ptags">${project.tags}</div>
+          ${link}
+        </div>
       </div>`;
     })
     .join('');

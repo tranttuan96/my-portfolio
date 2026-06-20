@@ -1,0 +1,61 @@
+/* ── Colors ─────────────────────────────────────────────────
+   Tuan.dev palette — warm cream canvas, deep plum ink, and a
+   playful clay-render accent set (yellow / pink / green / lilac /
+   sand / mint) lifted from the 3D decorative props. */
+
+:root {
+  /* Base canvas — warm paper */
+  --cream-50:  #fffdf8;  /* lightest surface */
+  --cream-100: #faf6ed;
+  --cream-200: #f5f1e8;  /* page background */
+  --cream-300: #efe9da;
+  --sand-200:  #e7e0d2;  /* hairline borders */
+  --sand-300:  #d8cfba;
+
+  /* Ink — deep plum, never pure black */
+  --plum-900: #17131f;
+  --plum-800: #1f1b2e;  /* primary text / dark surfaces */
+  --plum-700: #2d2742;
+  --plum-500: #4a4263;
+  --plum-400: #6a6480;  /* muted text */
+  --plum-300: #908aa3;
+
+  /* Accents — soft clay renders */
+  --yellow-500: #ffc23a;  /* signature highlight */
+  --yellow-600: #f5a800;
+  --pink-500:   #ff5d8f;  /* primary pop */
+  --pink-600:   #ec3f76;
+  --green-500:  #14b07c;  /* success / eyebrow */
+  --green-600:  #0e8f64;
+  --lilac-500:  #b06bff;  /* gradient mid / torus */
+  --lilac-600:  #9a4ff0;
+  --mint-400:   #8fe3cf;  /* diamond prop tint */
+  --sandclay-400: #d8c79b; /* triangle prop tint */
+
+  /* ── Semantic aliases ── */
+  --bg:            var(--cream-200);
+  --bg-raised:     var(--cream-50);
+  --surface-card:  #ffffff;
+  --surface-dark:  var(--plum-800);
+  --border:        var(--sand-200);
+  --border-strong: var(--sand-300);
+
+  --text-strong:  var(--plum-800);
+  --text-body:    var(--plum-700);
+  --text-muted:   var(--plum-400);
+  --text-on-dark: var(--cream-50);
+
+  --accent:        var(--yellow-500);
+  --accent-pop:    var(--pink-500);
+  --accent-go:     var(--green-500);
+  --accent-grad-a: var(--pink-500);
+  --accent-grad-b: var(--lilac-500);
+  --accent-grad-c: var(--green-500);
+
+  --focus-ring: var(--lilac-500);
+
+  /* Brand signature gradient (hero headline) */
+  --grad-headline: linear-gradient(92deg, var(--pink-500), var(--lilac-500) 52%, var(--green-500)); /* @kind color */
+  /* Soft clay card backdrop */
+  --grad-clay: linear-gradient(150deg, #ffe9c7 0%, #ffd0e0 50%, #d9e8ff 100%); /* @kind color */
+}
