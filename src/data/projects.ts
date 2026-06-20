@@ -1,5 +1,6 @@
-export interface PetProject {
-  shape: string;
+export interface Project {
+  image?: string;
+  shape?: string;
   tint: string;
   title: string;
   desc: string;
@@ -8,9 +9,9 @@ export interface PetProject {
   brewing?: boolean;
 }
 
-export const petProjects: PetProject[] = [
+export const projects: Project[] = [
   {
-    shape: 'square',
+    image: '/decoratives/portfolio-mockup.jpg',
     tint: 'linear-gradient(135deg,#ffd0e0,#ffe9c7)',
     title: 'This portfolio',
     desc: "You're looking at it. TypeScript, Vite, pure CSS animations — and way too much caffeine. The one project I can show 100% of.",
@@ -18,15 +19,15 @@ export const petProjects: PetProject[] = [
     link: { href: 'https://github.com/tranttuan96/my-portfolio', label: 'Source →' },
   },
   {
-    shape: 'zigzag',
+    image: '/decoratives/leadgen-mockup.jpg',
     tint: 'linear-gradient(135deg,#cfe6ff,#d8d2ff)',
-    title: "Something's brewing",
-    desc: "A tiny weekend idea is taking shape here. Check back soon — or ping me and I'll tell you about it first.",
-    tags: '???',
-    brewing: true,
+    title: 'Personal Brand & LeadGen Platform',
+    desc: 'A digital platform built for my wife. Features a high-speed Astro storefront for lead generation, paired with a React/Vite admin dashboard for internal management.',
+    tags: 'Astro · React · Tailwind',
+    link: { href: 'https://nhungtran.space', label: 'Visit Site →' },
   },
   {
-    shape: 'torus',
+    image: '/decoratives/idea-mockup.jpg',
     tint: 'linear-gradient(135deg,#ffd9c2,#ffb9d1)',
     title: 'Idea slot #3',
     desc: 'Reserved for the next "what if I just..." moment. Fun ideas only, zero meetings guaranteed.',

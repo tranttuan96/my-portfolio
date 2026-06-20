@@ -17,6 +17,7 @@
 .pet-card:hover { transform: var(--lift-sm) rotate(-1deg); border-color: var(--accent-pop); box-shadow: var(--shadow-lift); }
 .pet-card .p-illust { height: 124px; display: flex; align-items: center; justify-content: center; background: #eee; }
 .pet-card .p-illust img { height: 74px; opacity: 0.85; filter: drop-shadow(0 8px 12px rgba(120,90,160,.2)); }
+.pet-card .p-illust img.real-screenshot { height: 100%; width: 100%; object-fit: cover; opacity: 1; filter: none; }
 .pet-card .p-content { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .pet-card .p-header { display: flex; align-items: center; gap: 8px; }
 .pet-card .ptitle { font-weight: 800; font-size: 17px; color: var(--text-strong); }
