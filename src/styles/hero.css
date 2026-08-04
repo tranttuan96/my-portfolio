@@ -16,7 +16,7 @@
 .hero-illust { display: flex; align-items: center; justify-content: center; }
 .hero-stage { position: relative; width: min(100%, 420px); height: 470px; margin: 0 auto; }
 .avatar-card {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 86%; border-radius: 36px;
+  position: absolute; left: 0; right: 0; bottom: 0; height: 86%; border-radius: var(--r-2xl);
   background: radial-gradient(125% 100% at 50% 0%, #fffefb 0%, #f6eedd 58%, #eee2ca 100%);
   border: 1px solid var(--border);
   box-shadow: 0 46px 80px -34px rgba(120,90,160,.5), inset 0 2px 0 rgba(255,255,255,.7);
