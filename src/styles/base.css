@@ -56,9 +56,11 @@ section { max-width: 980px; margin: 0 auto; padding: 50px 26px; }
 .lead strong { color: var(--text-strong) }
 
 .badge { display: inline-flex; align-items: center; background: rgba(20, 176, 124, 0.1); color: var(--accent-go); border-radius: var(--r-pill); padding: 4px 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+.badge-row { margin-bottom: 16px }
 
 footer { text-align: center; padding: 34px; color: var(--text-muted); font-size: 13px; position: relative; z-index: 2 }
 footer b { color: var(--text-strong) }
+.signature-img { height: 54px; width: auto; margin-bottom: 12px }
 
 #blob {
   position: fixed; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-pop); opacity: .5;

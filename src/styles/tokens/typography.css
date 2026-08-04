@@ -2,13 +2,13 @@
    Display = Space Grotesk (techy, geometric, friendly)
    Body    = Plus Jakarta Sans (humanist, legible)
    Mono    = JetBrains Mono (tags, code, stack labels)
-   Script  = Caveat (signature, hand annotations) */
+   The handwritten signature is an image (signature.png), so no script
+   face is loaded. */
 
 :root {
   --font-display: 'Space Grotesk', 'Trebuchet MS', system-ui, sans-serif; /* @kind font */
   --font-body:    'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; /* @kind font */
   --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', monospace; /* @kind font */
-  --font-script:  'Caveat', 'Segoe Script', cursive; /* @kind font */
 
   /* Type scale — fluid where it matters */
   --fs-display:  clamp(46px, 7vw, 78px); /* @kind font */

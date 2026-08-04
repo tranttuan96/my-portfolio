@@ -15,8 +15,8 @@ export function renderProjects(): void {
       const imgClass = project.image ? 'class="real-screenshot"' : '';
       return `
       <div class="pet-card${project.brewing ? ' brewing' : ''}">
-        <div class="p-illust" style="background: ${project.tint}">
-          <img src="${imageSrc}" alt="" ${imgClass} />
+        <div class="p-illust">
+          <img src="${escapeAttr(imageSrc)}" alt="" ${imgClass} />
         </div>
         <div class="p-content">
           <div class="p-header">
@@ -24,10 +24,17 @@ export function renderProjects(): void {
             ${badge}
           </div>
           <p class="pdesc">${escapeAttr(project.desc)}</p>
-          <div class="ptags">${project.tags}</div>
+          <div class="ptags">${escapeAttr(project.tags)}</div>
           ${link}
         </div>
       </div>`;
     })
     .join('');
+
+  // Tints are applied through the CSSOM rather than a style attribute in the
+  // markup above: a strict style-src blocks style attributes parsed out of
+  // innerHTML, but not property writes like this one.
+  grid.querySelectorAll<HTMLElement>('.p-illust').forEach((illust, i) => {
+    illust.style.background = projects[i].tint;
+  });
 }

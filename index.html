@@ -6,13 +6,18 @@
 <title>Tuan Tran — Full-Stack Developer</title>
 <link rel="icon" type="image/png" href="/logo-mark.png" />
 <meta name="description" content="Full-stack developer in Ho Chi Minh City. React, NestJS, MongoDB. I care about clean architecture, performant code, and modern development workflows." />
+
+<!-- Above-the-fold faces only. crossorigin is required even same-origin,
+     otherwise the browser fetches each file a second time. -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/plus-jakarta-sans-latin.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/space-grotesk-latin.woff2" />
 </head>
 <body>
 <div id="blob"></div>
 
 <header class="topbar">
   <div class="logo">
-    <img src="/logo-mark.png" alt="" class="logo-img" />
+    <img src="/logo-mark.png" alt="" class="logo-img" width="512" height="512" />
     <a href="/">Tuan<span>.dev</span></a>
   </div>
   <nav class="nav">
@@ -27,7 +32,7 @@
   <section class="hero" id="home">
     <div class="hero-grid">
       <div class="hero-text">
-        <div style="margin-bottom: 16px;">
+        <div class="badge-row">
           <span class="badge">● Open to work</span>
         </div>
         <p class="greeting">Welcome to my portfolio 👋</p>
@@ -41,11 +46,12 @@
       <div class="hero-illust">
         <div class="hero-stage">
           <div class="avatar-card"></div>
-          <img class="avatar-img" src="/avatar-3d.png?v=3" alt="3D avatar of Tuan" />
-          <img class="deco deco-tl" src="https://img.icons8.com/3d-fluency/240/coffee-to-go.png" alt="" aria-hidden="true" />
-          <img class="deco deco-tr" src="https://img.icons8.com/3d-fluency/240/laptop.png" alt="" aria-hidden="true" />
-          <img class="deco deco-bl" src="https://img.icons8.com/3d-fluency/240/headset.png" alt="" aria-hidden="true" />
-          <img class="deco deco-br" src="https://img.icons8.com/3d-fluency/240/computer-mouse.png" alt="" aria-hidden="true" />
+          <img class="avatar-img" src="/avatar-3d.png?v=3" alt="3D avatar of Tuan" width="741" height="1064" decoding="async" />
+          <!-- Clay props; the accent palette in colors.css is sampled from these. -->
+          <img class="deco deco-tl" src="/decoratives/knot.png" alt="" aria-hidden="true" width="400" height="400" decoding="async" />
+          <img class="deco deco-tr" src="/decoratives/diamond.png" alt="" aria-hidden="true" width="400" height="400" decoding="async" />
+          <img class="deco deco-bl" src="/decoratives/triangle.png" alt="" aria-hidden="true" width="179" height="156" decoding="async" />
+          <img class="deco deco-br" src="/decoratives/zigzag.png" alt="" aria-hidden="true" width="160" height="124" decoding="async" />
         </div>
       </div>
     </div>
@@ -58,39 +64,39 @@
     <p class="lead">I care about security and performance, and I pick boring, proven tools that ship — across the whole stack.</p>
     <div class="stack-grid">
       <div class="tech-item">
-        <img src="https://img.icons8.com/plasticine/200/react.png" onerror="this.src='https://cdn.simpleicons.org/react/149ECA'" alt="React" />
+        <img src="/icons/tech/react.svg" alt="React" width="72" height="72" loading="lazy" decoding="async" />
         <span>React</span>
       </div>
       <div class="tech-item">
-        <img src="https://img.icons8.com/fluency/240/typescript.png" onerror="this.src='https://cdn.simpleicons.org/typescript/3178C6'" alt="TypeScript" />
+        <img src="/icons/tech/typescript.svg" alt="TypeScript" width="72" height="72" loading="lazy" decoding="async" />
         <span>TypeScript</span>
       </div>
       <div class="tech-item">
-        <img src="https://img.icons8.com/fluency/240/javascript.png" onerror="this.src='https://cdn.simpleicons.org/javascript/F7DF1E'" alt="JavaScript" />
+        <img src="/icons/tech/javascript.svg" alt="JavaScript" width="72" height="72" loading="lazy" decoding="async" />
         <span>JavaScript</span>
       </div>
       <div class="tech-item">
-        <img src="https://img.icons8.com/fluency/240/node-js.png" onerror="this.src='https://cdn.simpleicons.org/nodedotjs/5FA04E'" alt="Node.js" />
+        <img src="/icons/tech/nodejs.svg" alt="Node.js" width="72" height="72" loading="lazy" decoding="async" />
         <span>Node.js</span>
       </div>
       <div class="tech-item">
-        <img src="https://img.icons8.com/color/240/nestjs.png" onerror="this.src='https://cdn.simpleicons.org/nestjs/E0234E'" alt="NestJS" />
+        <img src="/icons/tech/nestjs.svg" alt="NestJS" width="72" height="72" loading="lazy" decoding="async" />
         <span>NestJS</span>
       </div>
       <div class="tech-item">
-        <img src="https://img.icons8.com/color/240/mongodb.png" onerror="this.src='https://cdn.simpleicons.org/mongodb/47A248'" alt="MongoDB" />
+        <img src="/icons/tech/mongodb.svg" alt="MongoDB" width="72" height="72" loading="lazy" decoding="async" />
         <span>MongoDB</span>
       </div>
       <div class="tech-item">
-        <img src="https://img.icons8.com/color/240/postgreesql.png" onerror="this.src='https://cdn.simpleicons.org/postgresql/4169E1'" alt="PostgreSQL" />
+        <img src="/icons/tech/postgresql.svg" alt="PostgreSQL" width="72" height="72" loading="lazy" decoding="async" />
         <span>PostgreSQL</span>
       </div>
       <div class="tech-item">
-        <img src="https://img.icons8.com/color/240/amazon-web-services.png" onerror="this.src='https://cdn.simpleicons.org/amazonaws/232F3E'" alt="AWS" />
+        <img src="/icons/tech/amazonwebservices.svg" alt="AWS" width="72" height="72" loading="lazy" decoding="async" />
         <span>AWS</span>
       </div>
       <div class="tech-item">
-        <img src="https://img.icons8.com/fluency/240/docker.png" onerror="this.src='https://cdn.simpleicons.org/docker/2496ED'" alt="Docker" />
+        <img src="/icons/tech/docker.svg" alt="Docker" width="72" height="72" loading="lazy" decoding="async" />
         <span>Docker</span>
       </div>
     </div>
@@ -108,16 +114,16 @@
   <section id="connect">
     <div class="connect-grid">
       <div class="connect-avatar">
-        <img id="c-img" src="/avatar-3d.png?v=3" alt="Tuan" style="transform: translateX(-11px);" />
+        <img id="c-img" src="/avatar-3d.png?v=3" alt="Tuan" width="741" height="1064" loading="lazy" decoding="async" />
       </div>
       <div>
         <span class="eyebrow eyebrow-accent">Say hi</span>
         <h2>Let’s build something 🚀</h2>
         <p>Open to full-stack roles and interesting freelance work. I reply fast.</p>
         <div class="connect-links">
-          <a href="mailto:tranttuan96@gmail.com" class="social-btn"><img src="https://cdn.simpleicons.org/gmail/ec3f76" alt="" /> Email</a>
-          <a href="https://github.com/tranttuan96" class="social-btn" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/github/1f1b2e" alt="" /> GitHub</a>
-          <a href="https://www.linkedin.com/" class="social-btn" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="" /> LinkedIn</a>
+          <a href="mailto:tranttuan96@gmail.com" class="social-btn"><img src="/icons/social/gmail.svg" alt="" width="18" height="18" loading="lazy" decoding="async" /> Email</a>
+          <a href="https://github.com/tranttuan96" class="social-btn" target="_blank" rel="noopener"><img src="/icons/social/github.svg" alt="" width="18" height="18" loading="lazy" decoding="async" /> GitHub</a>
+          <a href="https://www.linkedin.com/" class="social-btn" target="_blank" rel="noopener"><img src="/icons/social/linkedin.svg" alt="" width="18" height="18" loading="lazy" decoding="async" /> LinkedIn</a>
         </div>
       </div>
     </div>
@@ -126,7 +132,7 @@
 </div>
 
 <footer>
-  <img src="/signature.png" alt="Tuan Tran" style="height: 54px; margin-bottom: 12px;" /><br/>
+  <img src="/signature.png" alt="Tuan Tran" class="signature-img" width="820" height="300" loading="lazy" decoding="async" /><br/>
   Crafted with caffeine &amp; AI assistance by <b>Tuan Tran</b> · © 2026
 </footer>
 

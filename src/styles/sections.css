@@ -38,7 +38,7 @@
   width: 200px; height: 200px; border-radius: 50%; flex: none; align-self: center; overflow: hidden; display: flex; align-items: center; justify-content: center;
   background: radial-gradient(120% 100% at 50% 15%, #fffefb, #f3ead7); border: 1px solid var(--border); box-shadow: var(--shadow-lift);
 }
-.connect-avatar img { width: 100%; height: auto; transform: translate(-11px, 15px) scale(1.4); transform-origin: center center; }
+.connect-avatar img { width: 100%; height: auto; transform: translate(var(--avatar-connect-offset-x, -11px), 15px) scale(1.4); transform-origin: center center; }
 
 .connect-grid h2 { font-family: var(--font-display); font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin: 12px 0 10px; letter-spacing: -1px; }
 .connect-grid p { color: var(--text-muted); max-width: 600px; margin: 0 0 22px; line-height: 1.6; }
