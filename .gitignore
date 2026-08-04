@@ -6,4 +6,4 @@ dist/
 assets-staging/
 plans/
 progress.md
-.claude/
+.claude/settings.local.json
