@@ -22,18 +22,18 @@ This document outlines the design system for Tran Thanh Tuan's portfolio. All ag
 - **Display**: Space Grotesk (700) for hero roles, section titles. Tight tracking (`-1.5px` on big displays).
 - **Body**: Plus Jakarta Sans (400/700/800) for running text.
 - **Mono**: JetBrains Mono for tech-stack labels, dates, code. Always green when used as a stack line.
-- **Script**: Caveat (700) for signature and hand annotations.
+- **No script face.** The handwritten signature is an image (`public/signature.png`), not type. Caveat was dropped in `595bb88` when fonts moved to self-hosting; do not reintroduce it. Three families only — every face must be a self-hosted `.woff2` in `public/fonts/` with an `@font-face` in `src/styles/tokens/fonts.css`.
 - *Notes*: Use sentence case everywhere except tiny uppercase eyebrow/badge labels. Section titles always end with a colored period (e.g., `About.`).
 
 ## Shapes & Elevation
-- **Radii**: Controls/chips are full pills (999px). Cards are 18px. Feature panels 22px. Avatar card 32px.
+- **Radii**: Always a token from `src/styles/tokens/effects.css`, never a literal — `--r-pill` 999px (controls/chips), `--r-lg` 18px (cards), `--r-xl` 22px (feature panels), `--r-2xl` 32px (hero avatar card), `--r-sm` 8px, `--r-md` 14px.
 - **Borders**: 2px sand on cards and ghost buttons; 1px hairlines elsewhere.
 - **Elevation**: Cards rest on barely-there shadow. Interactive cards add a hover lift with a tiny −1° rotate, and border tints to an accent.
 
 ## Imagery & Iconography
 - **No pure flat icons**: Use the 3D clay styling. Tech tiles use Simple Icons rendered on soft clay tiles (rounded square with inner-highlight, colored inner-shadow, drop-shadowed logo).
 - **Decoratives**: Use the soft 3D clay props (zigzag, torus, square, triangle).
-- **Avatars**: The 3D clay chibi avatar (`assets/avatar-3d.png`). Photo avatars use clay-gradient backdrops.
+- **Avatars**: The 3D clay chibi avatar, served from `public/avatar-3d.png` (referenced as `/avatar-3d.png`). Photo avatars use clay-gradient backdrops.
 - **Emojis**: Yes, used deliberately and sparingly as punctuation (max 1 per line). Examples: 🚀 💬 👋 ☕ 🤖 👀 🧪 ⚡ 📍.
 
 ## Motion
@@ -45,4 +45,4 @@ This document outlines the design system for Tran Thanh Tuan's portfolio. All ag
 ## Structure
 - Single-page scroll: Hero → Tech Stack → Projects → Contact.
 - Minimal Nav: Home / Project / Resume.
-- Footer signature: "Made with caffeine & AI-assisted code by **Tuan Tran**".
+- Footer signature: "Crafted with caffeine & AI assistance by **Tuan Tran** · © 2026", above it the `signature.png` image.
