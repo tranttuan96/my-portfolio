@@ -69,6 +69,11 @@ to escalate, not a doc edit to make.
 
 ## 5. Audit the reverse direction
 
+Run `python3 .claude/skills/audit-docs/check-tokens.py` first and treat its
+output as evidence, not verdict. UNDEFINED entries are defects. DEAD, DOC-ONLY
+and LOCAL entries need judgement — a scoped property declared inside a selector
+is legitimate and must not be moved into the global token layer.
+
 Stale docs are only half the problem. Also report:
 
 - Rules enforced by tooling but documented nowhere: build scripts, CI checks, hooks
