@@ -1,28 +1,29 @@
 /* ── Motion ─────────────────────────────────────────────────
-   Playful but quick. Spring-ish easing for entrances, snappy
-   ease for hovers. Hover = lift + (sometimes) tiny rotate.
-   Press = settle back down. Honor prefers-reduced-motion. */
+   Playful but quick. `--ease-snap` drives every hover and press;
+   `--ease-bob` is the symmetric curve the idle prop loop needs.
+   Hover = lift + (sometimes) tiny rotate. Honor prefers-reduced-motion. */
 
 :root {
-  --ease-spring: cubic-bezier(.2, .8, .2, 1); /* @kind other */
-  --ease-snap:   cubic-bezier(.4, 0, .2, 1); /* @kind other */
+  --ease-snap: cubic-bezier(.4, 0, .2, 1); /* @kind other */
+  --ease-bob:  ease-in-out; /* @kind other */
 
   --dur-fast:  .16s; /* @kind other */
   --dur-base:  .2s; /* @kind other */
-  --dur-slow:  .9s; /* @kind other */
-  --dur-intro: 1s; /* @kind other */
 
   /* Standard interaction transforms */
-  --lift-sm: translateY(-2px); /* @kind other */
-  --lift-md: translateY(-3px); /* @kind other */
-  --lift-lg: translateY(-5px) rotate(-1deg); /* @kind other */
+  --lift-sm:  translateY(-2px); /* @kind other */
+  --lift-md:  translateY(-3px); /* @kind other */
+  --lift-card: translateY(-2px) rotate(-1deg); /* @kind other */
+  --lift-pop:  translateY(-6px) scale(1.06); /* @kind other */
+
+  /* Idle bob on the hero desk props */
+  --bob-distance: -12px; /* @kind other */
+  --bob-cycle:    6s; /* @kind other */
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
     --dur-fast: 0s; /* @kind other */
     --dur-base: 0s; /* @kind other */
-    --dur-slow: 0s; /* @kind other */
-    --dur-intro: 0s; /* @kind other */
   }
 }

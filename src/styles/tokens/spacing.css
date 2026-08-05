@@ -1,23 +1,38 @@
 /* ── Spacing & layout ───────────────────────────────────────
-   8px-based rhythm with a couple of half-steps for fine work. */
+   4px grid. `--space-N` is N × 4px; a `-5` suffix marks a
+   half-step (`--space-1-5` = 6px). Half-steps exist because the
+   controls — nav links, chips, badges — need finer padding than
+   the 8px rhythm the page layout runs on.
+
+   Every step below is in use. Add one here before writing a
+   literal padding, margin or gap. */
 
 :root {
-  --space-1:  4px;
-  --space-2:  8px;
-  --space-3:  12px;
-  --space-4:  16px;
-  --space-5:  20px;
-  --space-6:  26px;   /* page gutter */
-  --space-8:  32px;
-  --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-24: 96px;   /* section padding-top */
+  --space-1:    4px;
+  --space-1-5:  6px;
+  --space-2:    8px;
+  --space-2-5:  10px;
+  --space-3:    12px;
+  --space-3-5:  14px;
+  --space-4:    16px;
+  --space-4-5:  18px;
+  --space-5:    20px;
+  --space-5-5:  22px;
+  --space-6:    24px;
+  --space-8:    32px;
+  --space-9:    36px;
+  --space-10:   40px;
+  --space-12:   48px;
+  --space-16:   64px;
+  --space-20:   80px;
+
+  /* Page gutter — deliberately off-grid at 26px so the 980px
+     content column still clears the edge on a 1024px viewport. */
+  --gutter: 26px; /* @kind spacing */
 
   /* Content widths */
-  --width-prose:   620px; /* @kind spacing */
+  --width-intro:   470px; /* hero paragraph, beside the avatar */
+  --width-prose:   560px; /* section lead and body copy */
   --width-content: 980px; /* @kind spacing */
   --width-hero:    1100px; /* @kind spacing */
-
-  --gutter: var(--space-6); /* @kind spacing */
 }

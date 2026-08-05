@@ -3,39 +3,41 @@
    Body    = Plus Jakarta Sans (humanist, legible)
    Mono    = JetBrains Mono (tags, code, stack labels)
    The handwritten signature is an image (signature.png), so no script
-   face is loaded. */
+   face is loaded.
+
+   Sizes fluid where the jump between phone and desktop matters,
+   fixed where the element is a control or a label. */
 
 :root {
   --font-display: 'Space Grotesk', 'Trebuchet MS', system-ui, sans-serif; /* @kind font */
   --font-body:    'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; /* @kind font */
   --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', monospace; /* @kind font */
 
-  /* Type scale — fluid where it matters */
+  /* Type scale */
   --fs-display:  clamp(46px, 7vw, 78px); /* @kind font */
-  --fs-h1:       clamp(30px, 5vw, 48px); /* @kind font */
   --fs-h2:       clamp(26px, 4vw, 40px); /* @kind font */
-  --fs-h3:       22px; /* @kind font */
-  --fs-title:    18px; /* @kind font */
+  --fs-subhead:  clamp(18px, 2.4vw, 24px); /* @kind font */
   --fs-lead:     clamp(15px, 1.6vw, 19px); /* @kind font */
+  --fs-lg:       20px; /* @kind font */
+  --fs-title:    18px; /* @kind font */
   --fs-body:     15px; /* @kind font */
+  --fs-ui:       14px; /* @kind font — controls, nav, buttons */
   --fs-sm:       13.5px; /* @kind font */
   --fs-xs:       12px; /* @kind font */
   --fs-eyebrow:  12px; /* @kind font */
+  --fs-2xs:      11px; /* @kind font — badges */
 
   /* Weights */
-  --fw-regular:  400; /* @kind font */
-  --fw-medium:   500; /* @kind font */
-  --fw-semibold: 600; /* @kind font */
-  --fw-bold:     700; /* @kind font */
-  --fw-black:    800; /* @kind font */
+  --fw-bold:   700; /* @kind font */
+  --fw-black:  800; /* @kind font */
 
   /* Line heights */
   --lh-tight:   1.02; /* @kind font */
-  --lh-snug:    1.2; /* @kind font */
   --lh-normal:  1.6; /* @kind font */
 
   /* Letter spacing */
   --ls-display: -1.5px; /* @kind font */
   --ls-tight:   -1px; /* @kind font */
   --ls-eyebrow: 1.4px; /* @kind font */
+  --ls-wide:    .5px; /* @kind font */
 }

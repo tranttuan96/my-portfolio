@@ -1,10 +1,16 @@
 /* ── Effects — radii, borders, shadows ──────────────────────
    Soft, rounded, friendly. Pill-shaped controls; chunky 2px
-   borders on cards; gentle lifted shadows tinted toward plum. */
+   borders on cards; gentle lifted shadows tinted toward plum.
+
+   `border-radius: 50%` stays literal — a circle is a shape, not
+   a value off this scale. Every px radius comes from here.
+
+   The radius and shadow ladders are scales: --r-md and --shadow-xs/md/lg
+   are unused today and kept as the rungs between the ones that are. */
 
 :root {
   /* Corner radii */
-  --r-sm:    8px;
+  --r-sm:    8px;    /* logo mark */
   --r-md:    14px;
   --r-lg:    18px;   /* cards */
   --r-xl:    22px;   /* feature panels */
@@ -12,7 +18,7 @@
   --r-pill:  999px;  /* buttons, chips, toggles */
 
   /* Borders */
-  --bw:       1px;
+  --bw:        1px;
   --bw-chunky: 2px;  /* cards & ghost buttons */
 
   /* Shadows — tinted plum, soft */
@@ -22,9 +28,21 @@
   --shadow-lg:  0 30px 60px -20px rgba(120, 90, 160, .35);
   --shadow-lift: 0 14px 30px -10px rgba(120, 90, 160, .28);
 
-  /* Glow for the yellow timeline dot etc. */
-  --ring-yellow: 0 0 0 4px rgba(255, 194, 58, .18);
-  --ring-focus:  0 0 0 3px rgba(176, 107, 255, .45);
+  /* The hero avatar card sits deepest on the page: a long cast
+     shadow plus an inset top highlight to read as lit clay. */
+  --shadow-avatar-card: 0 46px 80px -34px rgba(120, 90, 160, .5),
+                        inset 0 2px 0 rgba(255, 255, 255, .7);
+
+  /* drop-shadow() filters for cut-out PNGs — these follow the
+     alpha channel, so they cannot be box-shadows. */
+  --drop-avatar: drop-shadow(0 18px 26px rgba(31, 27, 46, .18)); /* @kind other */
+  --drop-deco:   drop-shadow(0 12px 16px rgba(31, 27, 46, .22)); /* @kind other */
+  --drop-icon:   drop-shadow(0 12px 14px rgba(31, 27, 46, .15)); /* @kind other */
+
+  /* Reserved: the ring to hang on :focus-visible when keyboard focus
+     styling lands. Named --shadow-* because it is a box-shadow — do not
+     reintroduce a same-named color token beside it. */
+  --shadow-focus: 0 0 0 3px rgba(176, 107, 255, .45);
 
   /* Backdrop blur for the sticky topbar */
   --blur-bar: blur(8px); /* @kind other */

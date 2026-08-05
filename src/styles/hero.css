@@ -1,44 +1,47 @@
-/* Hero — new design structure */
-.hero { max-width: 1100px; margin: 0 auto; padding: 60px 26px 40px; }
-.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 36px; align-items: center; }
+/* Hero — text left, 3D avatar card right */
+.hero { max-width: var(--width-hero); margin: 0 auto; padding: var(--space-16) var(--gutter) var(--space-10); }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: var(--space-9); align-items: center; }
 
 .hero-text { display: flex; flex-direction: column; }
-.greeting { font-weight: 800; font-size: clamp(18px, 2.4vw, 24px); color: var(--text-strong); margin: 0 0 10px; }
+.greeting { font-weight: var(--fw-black); font-size: var(--fs-subhead); color: var(--text-strong); margin: 0 0 var(--space-2-5); }
 .hero .role {
-  font-family: var(--font-display); font-size: var(--fs-display); line-height: var(--lh-tight); 
-  font-weight: 700; letter-spacing: var(--ls-display); margin: 0 0 18px; 
+  font-family: var(--font-display); font-size: var(--fs-display); line-height: var(--lh-tight);
+  font-weight: var(--fw-bold); letter-spacing: var(--ls-display); margin: 0 0 var(--space-4-5);
   background: var(--grad-headline); -webkit-background-clip: text; background-clip: text; color: transparent; width: fit-content;
 }
-.hero .intro { font-size: var(--fs-lead); color: var(--text-muted); max-width: 470px; margin: 0 0 26px; line-height: 1.55; }
-.cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero .intro { font-size: var(--fs-lead); color: var(--text-muted); max-width: var(--width-intro); margin: 0 0 var(--gutter); line-height: var(--lh-normal); }
+.cta-row { display: flex; gap: var(--space-3); flex-wrap: wrap; }
 
 /* illustration */
 .hero-illust { display: flex; align-items: center; justify-content: center; }
 .hero-stage { position: relative; width: min(100%, 420px); height: 470px; margin: 0 auto; }
 .avatar-card {
   position: absolute; left: 0; right: 0; bottom: 0; height: 86%; border-radius: var(--r-2xl);
-  background: radial-gradient(125% 100% at 50% 0%, #fffefb 0%, #f6eedd 58%, #eee2ca 100%);
-  border: 1px solid var(--border);
-  box-shadow: 0 46px 80px -34px rgba(120,90,160,.5), inset 0 2px 0 rgba(255,255,255,.7);
+  background: var(--grad-avatar-card);
+  border: var(--bw) solid var(--border);
+  box-shadow: var(--shadow-avatar-card);
 }
-.avatar-img { position: absolute; left: 50%; bottom: 0; transform: translate(calc(-50% + var(--avatar-hero-offset-x, -25px)), var(--avatar-hero-offset-y, 0px)) scale(var(--avatar-hero-scale, 1)); transform-origin: bottom center; height: 94%; width: auto; max-width: none; filter: drop-shadow(0 18px 26px rgba(31,27,46,.18)); }
-.avatar-fallback { display: none; }
+/* The three --avatar-hero-* framing vars are set unconditionally on body
+   (base.css), so no fallbacks here — a fallback would only ever mislead. */
+.avatar-img { position: absolute; left: 50%; bottom: 0; transform: translate(calc(-50% + var(--avatar-hero-offset-x)), var(--avatar-hero-offset-y)) scale(var(--avatar-hero-scale)); transform-origin: bottom center; height: 94%; width: auto; max-width: none; filter: var(--drop-avatar); }
 
-.deco { position: absolute; z-index: 2; height: auto; pointer-events: none; filter: drop-shadow(0 12px 16px rgba(31,27,46,.22)); animation: clayBob 6s ease-in-out infinite; transform: rotate(var(--rot, 0deg)); }
+/* Desk props, corner-anchored around the avatar card. Each carries its
+   own --rot so the idle bob keeps the tilt instead of levelling it. */
+.deco { position: absolute; z-index: 2; height: auto; pointer-events: none; filter: var(--drop-deco); animation: clayBob var(--bob-cycle) var(--ease-bob) infinite; transform: rotate(var(--rot, 0deg)); }
 .deco-tl { width: 110px; top: 12%; left: -16%; animation-delay: 0s; --rot: -14deg; }
 .deco-tr { width: 120px; top: 8%; right: -16%; animation-delay: .7s; --rot: 18deg; }
 .deco-bl { width: 110px; bottom: 4%; left: -16%; animation-delay: 1.4s; --rot: 12deg; }
 .deco-br { width: 100px; bottom: -4%; right: -16%; animation-delay: 2.1s; --rot: -12deg; }
 
 @media (max-width: 860px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  .hero-grid { grid-template-columns: 1fr; gap: var(--space-6); text-align: center; }
   .hero-text { align-items: center; }
   .hero .role { margin-left: auto; margin-right: auto; }
   .cta-row { justify-content: center; }
   .hero-illust { order: -1; }
   .hero-stage { height: 320px; }
-  
-  /* Keep the icons but shrink and pull them inside so they don't cause overflow */
+
+  /* Keep the props but shrink and pull them inside so they don't overflow */
   .deco-tl { width: 60px; left: 2%; top: 8%; }
   .deco-tr { width: 66px; right: 2%; top: 4%; }
   .deco-bl { width: 60px; left: 2%; bottom: 10%; }

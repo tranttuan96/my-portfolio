@@ -1,7 +1,17 @@
 /* ── Colors ─────────────────────────────────────────────────
    Tuan.dev palette — warm cream canvas, deep plum ink, and a
    playful clay-render accent set (yellow / pink / green / lilac /
-   sand / mint) lifted from the 3D decorative props. */
+   sand) lifted from the 3D avatar render.
+
+   Two kinds of entry live here, and they are pruned differently:
+
+   RAMP steps (--plum-900 … --plum-300, --pink-600, --sand-300 …) are
+   the palette. Not every shade is in use at any given time; that is
+   fine, they are the range you pick the next one from. Leave them.
+
+   SEMANTIC aliases (--bg, --border, --text-*) name a job. An alias
+   nothing uses is naming a job that does not exist — delete it rather
+   than leave a plausible-looking token for someone to reach for. */
 
 :root {
   /* Base canvas — warm paper */
@@ -27,18 +37,15 @@
   --pink-600:   #ec3f76;
   --green-500:  #14b07c;  /* success / eyebrow */
   --green-600:  #0e8f64;
-  --lilac-500:  #b06bff;  /* gradient mid / torus */
+  --lilac-500:  #b06bff;  /* gradient mid */
   --lilac-600:  #9a4ff0;
-  --mint-400:   #8fe3cf;  /* diamond prop tint */
-  --sandclay-400: #d8c79b; /* triangle prop tint */
 
   /* ── Semantic aliases ── */
   --bg:            var(--cream-200);
   --bg-raised:     var(--cream-50);
-  --surface-card:  #ffffff;
-  --surface-dark:  var(--plum-800);
+  --surface-card:  var(--cream-50);
+  --surface-media: var(--cream-300);  /* card image slot, behind the tint */
   --border:        var(--sand-200);
-  --border-strong: var(--sand-300);
 
   --text-strong:  var(--plum-800);
   --text-body:    var(--plum-700);
@@ -48,14 +55,21 @@
   --accent:        var(--yellow-500);
   --accent-pop:    var(--pink-500);
   --accent-go:     var(--green-500);
-  --accent-grad-a: var(--pink-500);
-  --accent-grad-b: var(--lilac-500);
-  --accent-grad-c: var(--green-500);
 
-  --focus-ring: var(--lilac-500);
+  /* Sticky topbar — the page cream at 72%, over a backdrop blur,
+     under a plum hairline. Kept literal rgba because the alpha is
+     the point; `--cream-200` opaque would hide the scroll beneath. */
+  --bg-bar:     rgba(245, 241, 232, .72); /* @kind color */
+  --border-bar: rgba(31, 27, 46, .04); /* @kind color */
+
+  /* Chip fills — accent and ink at low alpha */
+  --bg-chip-go:    rgba(20, 176, 124, .1); /* @kind color */
+  --bg-chip-muted: rgba(31, 27, 46, .06); /* @kind color */
 
   /* Brand signature gradient (hero headline) */
   --grad-headline: linear-gradient(92deg, var(--pink-500), var(--lilac-500) 52%, var(--green-500)); /* @kind color */
-  /* Soft clay card backdrop */
-  --grad-clay: linear-gradient(150deg, #ffe9c7 0%, #ffd0e0 50%, #d9e8ff 100%); /* @kind color */
+
+  /* Clay backdrops — warm cream, lit from above, behind the 3D avatar */
+  --grad-avatar-card:     radial-gradient(125% 100% at 50% 0%, #fffefb 0%, #f6eedd 58%, #eee2ca 100%); /* @kind color */
+  --grad-avatar-backdrop: radial-gradient(120% 100% at 50% 15%, #fffefb, #f3ead7); /* @kind color */
 }

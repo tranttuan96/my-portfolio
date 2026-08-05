@@ -11,12 +11,10 @@ export function renderProjects(): void {
         ? `<a class="plink" href="${safeHref(project.link.href)}" target="_blank" rel="noopener">${escapeAttr(project.link.label)}</a>`
         : '';
       const badge = project.brewing ? `<span class="pbadge">In progress</span>` : '';
-      const imageSrc = project.image ? project.image : `/decoratives/${project.shape}.png`;
-      const imgClass = project.image ? 'class="real-screenshot"' : '';
       return `
       <div class="pet-card${project.brewing ? ' brewing' : ''}">
         <div class="p-illust">
-          <img src="${escapeAttr(imageSrc)}" alt="" ${imgClass} />
+          <img src="${escapeAttr(project.image)}" alt="" />
         </div>
         <div class="p-content">
           <div class="p-header">

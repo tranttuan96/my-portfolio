@@ -1,6 +1,5 @@
 export interface Project {
-  image?: string;
-  shape?: string;
+  image: string;
   tint: string;
   title: string;
   desc: string;
