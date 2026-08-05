@@ -4,7 +4,7 @@
 
 Personal portfolio of Tran Thanh Tuan (full-stack dev, HCMC).
 Vite + TypeScript, no framework. Site copy is English only — no i18n.
-Deployed on Vercel (auto-deploy from `main`).
+One landing page, no routes. Deployed on Vercel (auto-deploy from `main`).
 
 ## Commands
 
@@ -22,9 +22,15 @@ run it after every change, not just before commit.
 - All assets same-origin: put files in `public/`, never hotlink a CDN.
   `scripts/check-no-external-assets.sh` fails the build on `src`/`srcset`/
   `url()`/`@import` pointing at http(s). Outbound `<a href>` links are fine.
+- `vercel.json` sets a strict CSP (`default-src 'self'`, no `unsafe-inline`).
+  A `style="..."` attribute parsed out of innerHTML is blocked at runtime —
+  write per-element styling through the CSSOM instead.
 - Content lives in `src/data/*` (typed); renderers in `src/sections/*` build
   DOM via innerHTML — static typed data only, never external input.
   Escape with `src/utils/escape-html.ts`.
+- No literal values in CSS. Colors, spacing, radii, borders, motion and type
+  come from `src/styles/tokens/*`; add a token before inlining a value.
+  See `.claude/rules/design.md` for the exceptions.
 - Files under 200 lines. kebab-case filenames. Plain CSS only.
 
 ## Do not reverse (user-confirmed)
@@ -36,7 +42,7 @@ run it after every change, not just before commit.
 
 - Conventional commits: `feat:` `fix:` `chore:` `refactor:` `style:` `docs:`
 - No AI/assistant references in commit messages.
-- `plans/`, `progress.md`, `.claude/settings.local.json` are gitignored — keep out of the public repo. `.claude/rules/` is versioned.
+- `plans/`, `progress.md`, `.claude/settings.local.json` are gitignored — keep out of the public repo. `.claude/rules/` and `.claude/skills/` are versioned.
 
 ## Map
 
