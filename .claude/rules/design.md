@@ -38,7 +38,8 @@ durations and easings. Three things stay literal, deliberately:
 - **Intrinsic component sizes** — a 72px tech icon, the 200px avatar circle,
   the 124px card image slot, the 44px touch target. These are art direction,
   not rhythm.
-- **Breakpoints** (`720px`, `860px`) and grid track minimums.
+- **Breakpoints** (`720px`, `860px`, `1200px`) and grid track minimums. `1200px`
+  only reins in the hero prop overhang; layout still changes at 860 and 720.
 - **`border-radius: 50%`** and percentage offsets — shapes, not scale values.
 
 ## Palette
