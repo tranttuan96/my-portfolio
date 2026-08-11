@@ -63,6 +63,9 @@
 
 @media (max-width: 860px) {
   .stack-section { margin-top: 0; }
+  /* auto-fit still packs three 232px tracks in here, which reads as cramped
+     once the hero and the connect panel have already gone single-column. */
+  .pet-grid { grid-template-columns: repeat(2, 1fr); }
   .connect-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: var(--space-9) var(--space-5); }
   .connect-links { justify-content: center; }
   .connect-avatar { width: 140px; height: 140px; }
@@ -70,6 +73,9 @@
 
 @media (max-width: 720px) {
   .stack-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+  .pet-grid { grid-template-columns: 1fr; }
+  /* A full-width card would letterbox the screenshot at the 124px base height. */
+  .pet-card .p-illust { height: 180px; }
   .tech-item img { width: 44px; height: 44px; }
   .tech-item span { font-size: var(--fs-2xs); }
   /* 44px is the minimum comfortable touch target. */

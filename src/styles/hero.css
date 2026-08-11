@@ -33,6 +33,16 @@
 .deco-bl { width: 110px; bottom: 4%; left: -16%; animation-delay: 1.4s; --rot: 12deg; }
 .deco-br { width: 100px; bottom: -4%; right: -16%; animation-delay: 2.1s; --rot: -12deg; }
 
+/* The corner overhang below only clears the viewport while the page still has
+   an outer margin to lend it. Once the hero stops being centred and runs edge
+   to edge — anywhere under roughly 1160px — the right-hand props would hang
+   past the window and open a horizontal scrollbar, so sit all four on the
+   stage corners instead of outside them. */
+@media (max-width: 1200px) {
+  .deco-tl, .deco-bl { left: 0; }
+  .deco-tr, .deco-br { right: 0; }
+}
+
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr; gap: var(--space-6); text-align: center; }
   .hero-text { align-items: center; }
