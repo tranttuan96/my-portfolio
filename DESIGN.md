@@ -53,6 +53,12 @@ Every value below is a token in `src/styles/tokens/colors.css`. Never write the 
 - There are **no entrance animations** — content is present on load. Adding scroll-in or fade-up motion is a design change, not a detail; raise it before building it.
 - Always honor `prefers-reduced-motion`: `--dur-fast` and `--dur-base` collapse to `0s`, and the prop bob is switched off outright.
 
+## Focus & keyboard
+- **Everything you can tab to shows a ring.** One rule in `src/styles/base.css` hangs the ring on `a:focus-visible`, `button:focus-visible` and `[tabindex]:focus-visible` — written against the elements rather than a list of classes, so a control added later cannot ship without one.
+- **The ring is `--shadow-focus`**: a solid `--lilac-600` 2px core inside a soft 5px halo of the same hue. A box-shadow, not an outline, so it picks up each control's own radius — a pill on buttons, nav links and social buttons, `--r-sm` on the two links with no shape of their own (the logo wordmark and the project card link).
+- **The core is solid because contrast demands it.** The halo alone measures 1.6:1 against the cream canvas, under the 3:1 WCAG 2.2 asks of a focus indicator; the core carries it at 3.9:1 on the page and 4.4:1 on a card. If you restyle the ring, darken the core — never thin it below `--bw-chunky`.
+- **`:focus-visible`, never `:focus`** — a mouse click on a link must not leave a ring behind. The UA outline is replaced by a transparent one, which forced-colors mode repaints as a real indicator since it drops box-shadows outright.
+
 ## Structure
 - Single page, no routes: Hero → Tech Stack → Projects → Connect.
 - Minimal Nav: Home / Project / Resume.

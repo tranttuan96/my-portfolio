@@ -31,6 +31,10 @@ run it after every change, not just before commit.
 - No literal values in CSS. Colors, spacing, radii, borders, motion and type
   come from `src/styles/tokens/*`; add a token before inlining a value.
   See `.claude/rules/design.md` for the exceptions.
+- Every interactive element must show a visible focus ring. One rule in
+  `src/styles/base.css` hangs `--shadow-focus` on `:focus-visible` for every
+  link, button and `[tabindex]` — do not narrow it to a class list, drop it
+  with `outline: none`, or swap it for a color-only cue.
 - Files under 200 lines. kebab-case filenames. Plain CSS only.
 
 ## Do not reverse (user-confirmed)

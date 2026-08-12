@@ -39,10 +39,19 @@
   --drop-deco:   drop-shadow(0 12px 16px rgba(31, 27, 46, .22)); /* @kind other */
   --drop-icon:   drop-shadow(0 12px 14px rgba(31, 27, 46, .15)); /* @kind other */
 
-  /* Reserved: the ring to hang on :focus-visible when keyboard focus
-     styling lands. Named --shadow-* because it is a box-shadow — do not
-     reintroduce a same-named color token beside it. */
-  --shadow-focus: 0 0 0 3px rgba(176, 107, 255, .45);
+  /* The keyboard focus ring, hung on :focus-visible in base.css. Named
+     --shadow-* because it is a box-shadow — do not reintroduce a same-named
+     color token beside it. A box-shadow rather than an outline so the ring
+     picks up each control's own radius: pill on buttons, 18px on cards.
+
+     Two layers, and the solid one is load-bearing. The soft halo alone —
+     what this token reserved before it shipped — sits at 1.6:1 against the
+     cream canvas, under the 3:1 WCAG 2.2 asks of a focus indicator. The
+     --lilac-600 core carries the contrast (3.9:1 on the page, 4.4:1 on a
+     card); the halo is what makes it look like this palette. Both stay 2px
+     or thicker. Darken the core, never thin it. */
+  --shadow-focus: 0 0 0 2px var(--lilac-600),
+                  0 0 0 5px rgba(176, 107, 255, .35);
 
   /* Backdrop blur for the sticky topbar */
   --blur-bar: blur(8px); /* @kind other */

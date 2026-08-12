@@ -72,6 +72,36 @@ footer b { color: var(--text-strong) }
   pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width var(--dur-base) var(--ease-snap), height var(--dur-base) var(--ease-snap);
 }
 
+/* ── Keyboard focus ─────────────────────────────────────────
+   One ring for everything you can tab to. Written against the elements
+   rather than a list of classes (.btn, .nav-link, .social-btn, .plink) so a
+   control added later cannot ship without it. :focus-visible, not :focus —
+   the ring is for keyboard and assistive navigation, and a mouse click on a
+   link should not leave one behind.
+
+   This block must stay below the hover rules above: they set box-shadow on
+   the same elements, and where specificity ties, source order decides. */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  box-shadow: var(--shadow-focus);
+  /* Forced-colors mode drops box-shadows entirely. A transparent outline is
+     invisible here but is repainted as a real ring there, so replacing the UA
+     default does not leave those users with nothing. */
+  outline: var(--bw-chunky) solid transparent;
+  outline-offset: var(--space-1);
+}
+
+/* `.btn-primary:hover` writes its own box-shadow and outranks the rule above,
+   so a focused button under a resting pointer would lose the ring. Restated at
+   matching specificity for that overlap only. */
+.btn-primary:hover:focus-visible { box-shadow: var(--shadow-focus) }
+
+/* The two links with no shape of their own — the logo wordmark and the link on
+   a project card — would otherwise take the ring as a bare rectangle. */
+.logo a:focus-visible,
+.pet-card .plink:focus-visible { border-radius: var(--r-sm) }
+
 @media (max-width: 720px) {
   .nav .nav-link { display: none }
   #blob { display: none }

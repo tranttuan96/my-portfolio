@@ -97,6 +97,30 @@ undefined reference.
   fade-up motion is a design decision, so raise it rather than building it
 - Always honor `prefers-reduced-motion`
 
+## Focus
+
+Everything focusable carries a visible ring. `base.css` declares it once against
+`a:focus-visible`, `button:focus-visible` and `[tabindex]:focus-visible` — not a
+class list. Do not narrow that selector to specific classes; the point is that a
+control added later inherits the ring instead of shipping without one.
+
+- The ring is `--shadow-focus` (`effects.css`): a solid `--lilac-600` core plus a
+  soft halo. A box-shadow rather than an outline, so it follows each control's
+  radius. `--r-sm` is added on `:focus-visible` for the two links with no shape
+  of their own, `.logo a` and `.pet-card .plink`.
+- Keep the core at `--bw-chunky` or thicker and at 3:1 or better against
+  `--cream-200`. The halo alone is 1.6:1 — it is the palette, not the indicator.
+- The block sits **after** the hover rules in `base.css` deliberately. Those set
+  `box-shadow` on the same elements and win on a specificity tie by source order.
+  `.btn-primary:hover` outranks the shared rule outright, so the ring is restated
+  at `.btn-primary:hover:focus-visible`: a focused button that happens to sit
+  under the pointer must not lose it.
+- `:focus-visible`, never `:focus`. The UA outline is replaced by a transparent
+  one at `--bw-chunky` — invisible normally, repainted as a real ring in
+  forced-colors mode, which drops box-shadows. Never write a bare
+  `outline: none` without putting an equivalent indicator back, and never let a
+  color or weight change alone stand in for the ring.
+
 ## Rendering
 
 Section markup lives in `index.html`; `src/sections/*` builds DOM from typed data
