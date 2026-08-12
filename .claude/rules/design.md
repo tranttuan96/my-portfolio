@@ -1,6 +1,7 @@
 ---
 paths:
   - "index.html"
+  - "src/data/**"
   - "src/styles/**"
   - "src/sections/**"
   - "src/ui/**"

@@ -30,18 +30,17 @@ to `main`, so both static checks gate the deploy, not just local work.
 - Content lives in `src/data/*` (typed); renderers in `src/sections/*` build
   DOM via innerHTML — static typed data only, never external input.
   Escape with `src/utils/escape-html.ts`.
-- No literal values in CSS. Colors, spacing, radii, borders, motion and type
-  come from `src/styles/tokens/*`; add a token before inlining a value.
-  See `.claude/rules/design.md` for the exceptions.
+- No literal values — not in a stylesheet, not in `index.html`, not in
+  `src/data/*`. Colors, spacing, radii, borders, motion and type come from
+  `src/styles/tokens/*`; add a token before inlining a value. This includes the
+  gradient strings in the data layer: `var()` resolves there too, because the
+  value is assigned through the CSSOM. `check-tokens.py` runs inside
+  `npm run build` and fails it on a literal color or an undefined token.
+  See `.claude/rules/design.md` for the deliberate exceptions.
 - Every interactive element must show a visible focus ring. One rule in
   `src/styles/base.css` hangs `--shadow-focus` on `:focus-visible` for every
   link, button and `[tabindex]` — do not narrow it to a class list, drop it
   with `outline: none`, or swap it for a color-only cue.
-- Never write a color outside `src/styles/tokens/`. No `#hex`, `rgb()` or
-  `hsl()` in a stylesheet, in `src/data/*`, or in `index.html` — name it in
-  `tokens/colors.css` and reference it with `var()`, which resolves even in a
-  gradient string assigned through the CSSOM.
-  `check-tokens.py` runs inside `npm run build` and fails it on any of these.
 - Files under 200 lines. kebab-case filenames. Plain CSS only.
 
 ## Do not reverse (user-confirmed)
