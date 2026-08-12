@@ -56,7 +56,15 @@ Warm paper canvas, deep plum ink, clay accents. **The page is light, not dark.**
   `--yellow-500` (highlight), `--lilac-500` (gradient mid)
 - Translucent fills (`--bg-bar`, `--bg-chip-go`, `--bg-chip-muted`) are literal
   `rgba()` inside the token file because the alpha is load-bearing
+- Project card tints are pastel pairs (`--tint-portfolio-*`, `--tint-leadgen-*`,
+  `--tint-idea-*`), paler than the accent ramp because a screenshot sits on top.
+  Used only from `src/data/projects.ts`, not from a stylesheet
 - Shadows are plum-tinted, never black
+
+No `#hex`, `rgb()` or `hsl()` may appear outside `src/styles/tokens/` — not in a
+stylesheet, not in `src/data/*`, not in `index.html`. `var()` resolves in a
+gradient string assigned through the CSSOM, so the data layer has no excuse.
+`check-tokens.py` exits non-zero on any literal color it finds.
 
 ## Type
 

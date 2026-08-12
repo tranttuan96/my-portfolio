@@ -70,9 +70,20 @@ to escalate, not a doc edit to make.
 ## 5. Audit the reverse direction
 
 Run `python3 .claude/skills/audit-docs/check-tokens.py` first and treat its
-output as evidence, not verdict. UNDEFINED entries are defects. DEAD, DOC-ONLY
-and LOCAL entries need judgement — a scoped property declared inside a selector
-is legitimate and must not be moved into the global token layer.
+output as evidence, not verdict. UNDEFINED and LITERAL entries are defects and
+the script exits non-zero on either. DEAD, DOC-ONLY and LOCAL entries need
+judgement — a scoped property declared inside a selector is legitimate and must
+not be moved into the global token layer.
+
+LITERAL covers any `#hex`, `rgb()` or `hsl()` written outside
+`src/styles/tokens/`, scanned across `src/**/*.css`, `src/**/*.ts` and
+`index.html` — the renderers write color through the CSSOM, so a hardcoded
+value hides in the data layer just as easily as in a stylesheet. Comments are
+ignored, and docs are not scanned because they quote hex values to describe the
+palette.
+
+Add `--quiet` to print only the two defect groups, and nothing at all when there
+are none. The exit code is the same either way, which makes it usable as a gate.
 
 Stale docs are only half the problem. Also report:
 
