@@ -15,9 +15,15 @@ npm run build      # check-no-external-assets.sh && check-tokens.py --quiet
 npm run preview    # serve dist/
 ```
 
-No tests in this repo. `npm run build` is the only verify gate —
-run it after every change, not just before commit. Vercel runs it on every push
-to `main`, so both static checks gate the deploy, not just local work.
+No tests in this repo. `npm run build` is the verify gate a human runs —
+after every change, not just before commit. Vercel runs it on every push to
+`main`, so both static checks gate the deploy, not just local work.
+
+Agent sessions are gated twice more by `.claude/settings.json` hooks:
+`check-tokens.py` after every Edit/Write (PostToolUse), and
+`.claude/hooks/verify.sh` before the turn can end (Stop) — that one runs
+check-no-external-assets, `tsc --noEmit` and check-tokens, but deliberately
+not `vite build`. Neither hook replaces `npm run build`.
 
 ## Rules
 

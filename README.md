@@ -23,12 +23,13 @@ Vite · HTML · plain CSS · TypeScript
 ```bash
 npm install
 npm run dev       # http://localhost:5173
-npm run build     # same-origin asset check → tsc --noEmit → vite build
+npm run build     # asset check → token check → tsc --noEmit → vite build
 npm run preview   # serve the production build
 ```
 
-There are no tests. `npm run build` is the verify gate: it fails on any external
-asset reference before it type-checks, so run it after every change.
+There are no tests. `npm run build` is the verify gate, and both static checks
+run before it type-checks: one fails on any external asset reference, the other
+on any literal color or undefined token. Run it after every change.
 
 ## Structure
 
@@ -37,6 +38,8 @@ index.html            # Vite single-page entry — all section markup lives here
 vercel.json           # strict CSP + immutable cache headers for /fonts, /icons
 scripts/
 └── check-no-external-assets.sh   # build gate: every asset must be same-origin
+.claude/skills/audit-docs/
+└── check-tokens.py               # build gate: no literal color, no undefined token
 src/
 ├── main.ts           # entry point — imports styles, renders, wires interactions
 ├── sections/         # DOM renderers fed by data/
@@ -63,4 +66,5 @@ agents and contributors.
 ## Credits
 
 Designed & built by Tuan Tran. Desk props from Microsoft Fluent Emoji 3D (MIT);
-tech logos from Simple Icons.
+tech-stack and LinkedIn logos from Devicon (MIT); Gmail and GitHub logos from
+Simple Icons (CC0).

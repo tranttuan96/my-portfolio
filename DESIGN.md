@@ -41,7 +41,7 @@ Every value below is a token in `src/styles/tokens/colors.css`. Never write the 
 - **Elevation**: Cards rest on `--shadow-sm`. Interactive cards hover-lift with a tiny −1° rotate (`--lift-card`) and the border tints to an accent. Cut-out PNGs use the `--drop-*` filters, not box-shadows — those follow the alpha channel.
 
 ## Imagery & Iconography
-- **Tech icons**: Simple Icons, rendered bare on the page background with a soft `--drop-icon` shadow and a mono caption. No tile, no plate, no border. Hover pops the icon (`--lift-pop`).
+- **Tech icons**: Devicon (MIT), rendered bare on the page background with a soft `--drop-icon` shadow and a mono caption. No tile, no plate, no border. Hover pops the icon (`--lift-pop`). The social icons share the treatment: LinkedIn is Devicon too, Gmail and GitHub come from Simple Icons (CC0) with the brand colours inlined.
 - **Decoratives**: Four floating desk props — coffee, laptop, headphone, mouse — from Microsoft Fluent Emoji 3D (MIT), self-hosted in `public/decoratives/props/`. Anchored to the corners of the hero stage, each with its own `--rot` tilt.
 - **Avatars**: The 3D clay chibi avatar, served from `public/avatar-3d.png` (referenced as `/avatar-3d.png?v=N` — bump `N` when the render changes, the file is cached hard). The hero card sits on `--grad-avatar-card`; the round connect avatar on `--grad-avatar-backdrop`. Both are warm cream radials lit from above.
 - **Project cards** show a real screenshot, cropped to fill, over a per-project tint from `src/data/projects.ts`.
