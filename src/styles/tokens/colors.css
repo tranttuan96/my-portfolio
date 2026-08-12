@@ -40,6 +40,18 @@
   --lilac-500:  #b06bff;  /* gradient mid */
   --lilac-600:  #9a4ff0;
 
+  /* Project card tints — pastel pairs, one per card, washed over the image
+     slot. Referenced from src/data/projects.ts, not from a stylesheet: the
+     gradient string is assigned through the CSSOM in render-projects.ts and
+     var() resolves there like anywhere else. Paler than the accent ramp on
+     purpose — they sit behind a screenshot and must not compete with it. */
+  --tint-portfolio-a: #ffd0e0;
+  --tint-portfolio-b: #ffe9c7;
+  --tint-leadgen-a:   #cfe6ff;
+  --tint-leadgen-b:   #d8d2ff;
+  --tint-idea-a:      #ffd9c2;
+  --tint-idea-b:      #ffb9d1;
+
   /* ── Semantic aliases ── */
   --bg:            var(--cream-200);
   --bg-raised:     var(--cream-50);

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "sh scripts/check-no-external-assets.sh && tsc --noEmit && vite build",
+    "build": "sh scripts/check-no-external-assets.sh && python3 .claude/skills/audit-docs/check-tokens.py --quiet && tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

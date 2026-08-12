@@ -10,12 +10,14 @@ One landing page, no routes. Deployed on Vercel (auto-deploy from `main`).
 
 ```bash
 npm run dev        # dev server
-npm run build      # check-no-external-assets.sh && tsc --noEmit && vite build
+npm run build      # check-no-external-assets.sh && check-tokens.py --quiet
+                   #   && tsc --noEmit && vite build
 npm run preview    # serve dist/
 ```
 
 No tests in this repo. `npm run build` is the only verify gate —
-run it after every change, not just before commit.
+run it after every change, not just before commit. Vercel runs it on every push
+to `main`, so both static checks gate the deploy, not just local work.
 
 ## Rules
 
@@ -35,6 +37,11 @@ run it after every change, not just before commit.
   `src/styles/base.css` hangs `--shadow-focus` on `:focus-visible` for every
   link, button and `[tabindex]` — do not narrow it to a class list, drop it
   with `outline: none`, or swap it for a color-only cue.
+- Never write a color outside `src/styles/tokens/`. No `#hex`, `rgb()` or
+  `hsl()` in a stylesheet, in `src/data/*`, or in `index.html` — name it in
+  `tokens/colors.css` and reference it with `var()`, which resolves even in a
+  gradient string assigned through the CSSOM.
+  `check-tokens.py` runs inside `npm run build` and fails it on any of these.
 - Files under 200 lines. kebab-case filenames. Plain CSS only.
 
 ## Do not reverse (user-confirmed)

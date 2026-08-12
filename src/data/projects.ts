@@ -11,7 +11,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     image: '/decoratives/portfolio-mockup.jpg',
-    tint: 'linear-gradient(135deg,#ffd0e0,#ffe9c7)',
+    tint: 'linear-gradient(135deg,var(--tint-portfolio-a),var(--tint-portfolio-b))',
     title: 'This portfolio',
     desc: "You're looking at it. TypeScript, Vite, pure CSS animations — and way too much caffeine. The one project I can show 100% of.",
     tags: 'TypeScript · Vite · CSS',
@@ -19,7 +19,7 @@ export const projects: Project[] = [
   },
   {
     image: '/decoratives/leadgen-mockup.jpg',
-    tint: 'linear-gradient(135deg,#cfe6ff,#d8d2ff)',
+    tint: 'linear-gradient(135deg,var(--tint-leadgen-a),var(--tint-leadgen-b))',
     title: 'Personal Brand & LeadGen Platform',
     desc: 'A digital platform built for my wife. Features a high-speed Astro storefront for lead generation, paired with a React/Vite admin dashboard for internal management.',
     tags: 'Astro · React · Tailwind',
@@ -27,7 +27,7 @@ export const projects: Project[] = [
   },
   {
     image: '/decoratives/idea-mockup.jpg',
-    tint: 'linear-gradient(135deg,#ffd9c2,#ffb9d1)',
+    tint: 'linear-gradient(135deg,var(--tint-idea-a),var(--tint-idea-b))',
     title: 'Idea slot #3',
     desc: 'Reserved for the next "what if I just..." moment. Fun ideas only, zero meetings guaranteed.',
     tags: 'coming soon',
