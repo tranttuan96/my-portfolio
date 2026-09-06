@@ -11,10 +11,14 @@ export function renderProjects(): void {
         ? `<a class="plink" href="${safeHref(project.link.href)}" target="_blank" rel="noopener">${escapeAttr(project.link.label)}</a>`
         : '';
       const badge = project.brewing ? `<span class="pbadge">In progress</span>` : '';
+      // Without a screenshot the tint shows through, so draw the initial on it.
+      const illust = project.image
+        ? `<img src="${escapeAttr(project.image)}" alt="" />`
+        : `<span class="pmono" aria-hidden="true">${escapeAttr(project.monogram ?? '')}</span>`;
       return `
       <div class="pet-card${project.brewing ? ' brewing' : ''}">
         <div class="p-illust">
-          <img src="${escapeAttr(project.image)}" alt="" />
+          ${illust}
         </div>
         <div class="p-content">
           <div class="p-header">

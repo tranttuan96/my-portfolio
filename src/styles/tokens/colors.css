@@ -44,13 +44,14 @@
      slot. Referenced from src/data/projects.ts, not from a stylesheet: the
      gradient string is assigned through the CSSOM in render-projects.ts and
      var() resolves there like anywhere else. Paler than the accent ramp on
-     purpose — they sit behind a screenshot and must not compete with it. */
+     purpose — they sit behind a screenshot, or behind a
+     monogram when a project has none to show, and must not compete with it. */
   --tint-portfolio-a: #ffd0e0;
   --tint-portfolio-b: #ffe9c7;
   --tint-leadgen-a:   #cfe6ff;
   --tint-leadgen-b:   #d8d2ff;
-  --tint-idea-a:      #ffd9c2;
-  --tint-idea-b:      #ffb9d1;
+  --tint-homehub-a:   #ffd9c2;
+  --tint-homehub-b:   #ffb9d1;
 
   /* ── Semantic aliases ── */
   --bg:            var(--cream-200);

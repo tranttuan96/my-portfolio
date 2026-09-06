@@ -1,5 +1,8 @@
 export interface Project {
-  image: string;
+  /** Screenshot for the card. Omit when a project has nothing public to show. */
+  image?: string;
+  /** Single letter drawn in the image slot when there is no screenshot. */
+  monogram?: string;
   tint: string;
   title: string;
   desc: string;
@@ -24,5 +27,12 @@ export const projects: Project[] = [
     desc: 'A digital platform built for my wife. Features a high-speed Astro storefront for lead generation, paired with a React/Vite admin dashboard for internal management.',
     tags: 'Astro · React · Tailwind',
     link: { href: 'https://nhungtran.space', label: 'Visit Site →' },
+  },
+  {
+    monogram: 'H',
+    tint: 'linear-gradient(135deg,var(--tint-homehub-a),var(--tint-homehub-b))',
+    title: 'HomeHub',
+    desc: 'A personal finance platform I built and run solo. Bank webhooks land through a transactional outbox, a queue picks them up, and an AI agent answers questions about accounts and records transactions through typed tools.',
+    tags: 'NestJS · PostgreSQL · BullMQ · React',
   },
 ];

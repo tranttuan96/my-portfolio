@@ -19,6 +19,7 @@
 /* The tint under each screenshot is written from render-projects.ts. */
 .pet-card .p-illust { height: 124px; background: var(--surface-media); }
 .pet-card .p-illust img { height: 100%; width: 100%; object-fit: cover; display: block; }
+.pet-card .p-illust .pmono { display: grid; place-items: center; height: 100%; font-size: var(--fs-h2); font-weight: var(--fw-black); color: var(--text-strong); }
 .pet-card .p-content { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); flex: 1; }
 .pet-card .p-header { display: flex; align-items: center; gap: var(--space-2); }
 .pet-card .ptitle { font-weight: var(--fw-black); font-size: var(--fs-title); color: var(--text-strong); }
