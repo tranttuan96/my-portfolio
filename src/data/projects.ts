@@ -21,18 +21,18 @@ export const projects: Project[] = [
     link: { href: 'https://github.com/tranttuan96/my-portfolio', label: 'Source →' },
   },
   {
+    monogram: 'H',
+    tint: 'linear-gradient(135deg,var(--tint-homehub-a),var(--tint-homehub-b))',
+    title: 'HomeHub',
+    desc: 'A personal finance platform I built and run solo. Bank webhooks land through a transactional outbox, a queue picks them up, and an AI agent answers questions about accounts and records transactions through typed tools.',
+    tags: 'NestJS · PostgreSQL · BullMQ · React',
+  },
+  {
     image: '/decoratives/leadgen-mockup.jpg',
     tint: 'linear-gradient(135deg,var(--tint-leadgen-a),var(--tint-leadgen-b))',
     title: 'Personal Brand & LeadGen Platform',
     desc: 'A digital platform built for my wife. Features a high-speed Astro storefront for lead generation, paired with a React/Vite admin dashboard for internal management.',
     tags: 'Astro · React · Tailwind',
     link: { href: 'https://nhungtran.space', label: 'Visit Site →' },
-  },
-  {
-    monogram: 'H',
-    tint: 'linear-gradient(135deg,var(--tint-homehub-a),var(--tint-homehub-b))',
-    title: 'HomeHub',
-    desc: 'A personal finance platform I built and run solo. Bank webhooks land through a transactional outbox, a queue picks them up, and an AI agent answers questions about accounts and records transactions through typed tools.',
-    tags: 'NestJS · PostgreSQL · BullMQ · React',
   },
 ];
