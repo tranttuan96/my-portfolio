@@ -25,12 +25,4 @@ export const projects: Project[] = [
     tags: 'Astro · React · Tailwind',
     link: { href: 'https://nhungtran.space', label: 'Visit Site →' },
   },
-  {
-    image: '/decoratives/idea-mockup.jpg',
-    tint: 'linear-gradient(135deg,var(--tint-idea-a),var(--tint-idea-b))',
-    title: 'Idea slot #3',
-    desc: 'Reserved for the next "what if I just..." moment. Fun ideas only, zero meetings guaranteed.',
-    tags: 'coming soon',
-    brewing: true,
-  },
 ];
